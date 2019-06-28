@@ -1,0 +1,51 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+.navbar {
+  height: 70px;
+  border-bottom: 5px solid black;
+}
+
+.container-fluid {
+  height: 90%;
+  background-image: url("./images/snow-background.JPG");
+  background-size: cover;
+  /* color: #fff; */
+}
+
+.main-row {
+  height: 600px;
+}
+
+.park-aside {
+  border: 2px solid #fff;
+  background-color: #fff;
+}
+
+.park-click:hover {
+  cursor: pointer;
+}
+
+.main-section {
+  border: 2px solid #fff;
+  padding: 0px;
+}
+
+.bold-font {
+  font-weight: bold;
+}
+
+#map {
+  height: 100%;
+}
+
+/* trails page styling */
+.trail-aside {
+  border: 2px solid #fff;
+  background-color: #fff;
+}

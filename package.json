@@ -1,0 +1,38 @@
+{
+  "name": "hike-kc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "server": "node server.js",
+    "client": "cd client && npm run start",
+    "start": "concurrently \"nodemon server.js\" \"npm run client\"",
+    "build": "cd client && npm run build",
+    "deploy": "yarn build && git add . && git commit -m \"Building for production\" && git push heroku master",
+    "seed": "node scripts/seedDB.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "installDeps": "yarn && cd client && yarn"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/schosev/hike-kc.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "concurrently": "^4.1.0",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "mysql": "^2.16.0",
+    "mysql2": "^1.6.5",
+    "nodemon": "^1.18.10",
+    "sequelize": "^4.42.1"
+  },
+  "bugs": {
+    "url": "https://github.com/schosev/hike-kc/issues"
+  },
+  "homepage": "https://github.com/ggaeth/pet-care-projectschosev/hike-kc#readme"
+}

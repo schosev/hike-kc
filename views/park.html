@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="initial-scale=1.0">
+  <title>Hike KC</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="/assets/style.css" type="text/css" />
+  
+</head>
+<body>
+  <nav class="navbar">
+    <a class="navbar-brand">Hike KC</a>
+    <form class="form-inline">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row main-row">
+      <div class="col-md-1"></div>
+      <aside class="col-md-2 trail-aside">
+        <h1>List of Trails</h1>
+        <!-- <button class="btn test-btn" id="test-btn-id">FindAll</button> -->
+      </aside>
+
+      <section class="col-md-8 main-section">
+        <div id="map"></div>
+      </section>
+      <div class="col-md-1"></div>
+    </div>
+  </div>
+
+</body>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery.js"></script>
+<script src="/assets/js/parkMap.js"></script>
+<!-- <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=googleApiKey&callback=initMap">
+    </script> -->
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCs36HDIO9xXLV8V3TgCnfVlUFg09DNXR8&callback=initParkMap">
+    </script>
+    <script src="/assets/js/park.js"></script>
+
+</html> 
