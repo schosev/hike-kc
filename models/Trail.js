@@ -25,6 +25,14 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER(1),
       allowNull: false,
     },
+    trail_length_meters: {
+      type: DataTypes.DECIMAL(10,2),
+      allowNull: true,
+    },
+    trail_length_miles: {
+      type: DataTypes.DECIMAL(10,2),
+      allowNull: true,
+    },
     hiking: {
       type: DataTypes.BOOLEAN,
       default: false,

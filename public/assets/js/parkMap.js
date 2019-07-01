@@ -2,8 +2,8 @@
 var map, infoWindow;
       function initParkMap() {
         map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 39.0997, lng: -94.5786},
-          zoom: 10
+          // center: {lat: 39.0997, lng: -94.5786},
+          // zoom: 10
         });
         infoWindow = new google.maps.InfoWindow;
 
@@ -29,11 +29,9 @@ var map, infoWindow;
           dbPark.Trails.forEach(function(trail) {
             
             trail.Tracks.forEach(function(track) {
-              // var trailLength = [];
               var cordArray = [];
               track.Cords.forEach(function(cords) {
-                cordArray.push({lat: parseFloat(cords.lon), lng: parseFloat(cords.lat)});
-                // trailLength.push(cords.slice(-1)[0]);
+                cordArray.push({lat: parseFloat(cords.lat), lng: parseFloat(cords.lon)});
               })
               console.log("cordArray lat: " + cordArray[0].lat);
               console.log("cordArray lng: " + cordArray[0].lng);
@@ -50,9 +48,13 @@ var map, infoWindow;
               var trailId = trail.trail_id.toString();
               var name = trail.trail_name;
               var rating = trail.trail_rating;
+              var lengthMeters = trail.Tracks[0].Cords.slice(-1)[0];
+              var lengthMetersNbr = parseFloat(lengthMeters.distance);
+              var lengthMiles = Math.round((lengthMetersNbr * 0.000621371) * 100) / 100
+              // var lengthKilometers = Math.round((lengthMetersNbr * 0.001) * 100) / 100
               var point = new google.maps.LatLng(
-                parseFloat(trail.Tracks[0].Cords[0].lon),
-                parseFloat(trail.Tracks[0].Cords[0].lat));
+                parseFloat(trail.Tracks[0].Cords[0].lat),
+                parseFloat(trail.Tracks[0].Cords[0].lon));
               var marker = new google.maps.Marker({
                 map: map,
                 position: point,
@@ -60,7 +62,7 @@ var map, infoWindow;
               });
               marker.addListener('click', function() {
                 infoWindow.setContent('<div class="trail-click" id="' + trailId + '">' + '<span class="bold-font">' + name + '</span>' + '<br>' + 
-                'Rating: ' + rating + '</div>');
+                'Rating: ' + rating + '<br>' + 'Length: ' + lengthMiles + ' miles</div>');
                 infoWindow.open(map, marker);
               });
             })
