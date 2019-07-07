@@ -13,8 +13,9 @@ router.get("/", function(req, res) {
   res.sendFile(path.join(__dirname, "..", "./views/index.html"));
 });
 
-router.get("/trail", function(req, res) {
+router.get("/trail/:trailId", function(req, res, next) {
   res.sendFile(path.join(__dirname, "..", "./views/trail.html"));
+  
 });
 
 router.get("/park/:parkId", function(req, res) {

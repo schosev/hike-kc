@@ -39,6 +39,8 @@ var map, infoWindow;
             var name = markerElem.park_name;
             var address = markerElem.park_address;
             console.log("address ", address);
+            var totalTrailsMeterNbr = parseFloat(markerElem.total_trail_lngth_meters)
+            var totalTrailMiles = Math.round((totalTrailsMeterNbr * 0.000621371) * 100) / 100
             var rating = markerElem.park_rating;
             var elev = markerElem.park_elev;
             var point = new google.maps.LatLng(
@@ -53,7 +55,7 @@ var map, infoWindow;
             });
             marker.addListener('click', function() {
               infoWindow.setContent('<div class="park-click" id="' + parkId + '">' + '<span class="bold-font">' + name + '</span><br>' +
-                address + '<br>' + 'Rating: ' + rating + '</div>'
+                address + '<br> Total Trails: ' + totalTrailMiles + ' miles <br> Rating: ' + rating + '</div>'
               );
               infoWindow.open(map, marker);
             });

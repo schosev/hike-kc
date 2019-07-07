@@ -1,6 +1,6 @@
 
 var map, infoWindow;
-      function initParkMap() {
+      function initTrailMap() {
         map = new google.maps.Map(document.getElementById('map'), {
           // center: {lat: 39.0997, lng: -94.5786},
           // zoom: 10
@@ -8,28 +8,31 @@ var map, infoWindow;
         infoWindow = new google.maps.InfoWindow;
 
         //Get all the parks and place on the map
-        function trailMarkers() {
+        function trailMarker() {
           var url = window.location.pathname;
           var id = url.substring(url.lastIndexOf('/') + 1);
           var idNbr = parseInt(id);
           console.log("url id ", id);
 
-          $.get("/api/onePark/" + idNbr, function(dbPark, err) {
-          console.log('Park ', dbPark);
+          $.get("/api/trail/" + idNbr, function(dbTrail, err) {
+          console.log('Trail ', dbTrail);
           console.log("err", err);
 
+          var getFirstCordsArray = dbTrail.Tracks[0].Cords.slice(0)[0];
+          var getFirtsCordsLat = parseFloat(getFirstCordsArray.lat);
+          var getFirtsCordsLon = parseFloat(getFirstCordsArray.lon);
+          console.log('getFirtsCordsLat ' + getFirtsCordsLat)
+
           var pos = {
-            lat: parseFloat(dbPark.park_lat),
-            lng: parseFloat(dbPark.park_lon)
+            lat: parseFloat(getFirtsCordsLat),
+            lng: parseFloat(getFirtsCordsLon)
           };
           map.setCenter(pos);
-          map.setZoom(15);
+          map.setZoom(14);
           map.setMapTypeId(google.maps.MapTypeId.HYBRID);
           
-          
-          dbPark.Trails.forEach(function(trail) {
             
-            trail.Tracks.forEach(function(track) {
+            dbTrail.Tracks.forEach(function(track) {
               var cordArray = [];
               track.Cords.forEach(function(cords) {
                 cordArray.push({lat: parseFloat(cords.lat), lng: parseFloat(cords.lon)});
@@ -46,16 +49,16 @@ var map, infoWindow;
               });
               trailPath.setMap(map);
               })
-              var trailId = trail.trail_id.toString();
-              var name = trail.trail_name;
-              var rating = trail.trail_rating;
-              var lengthMeters = trail.Tracks[0].Cords.slice(-1)[0];
+              var trailId = dbTrail.trail_id.toString();
+              var name = dbTrail.trail_name;
+              var rating = dbTrail.trail_rating;
+              var lengthMeters = dbTrail.Tracks[0].Cords.slice(-1)[0];
               var lengthMetersNbr = parseFloat(lengthMeters.distance);
               var lengthMiles = Math.round((lengthMetersNbr * 0.000621371) * 100) / 100
               // var lengthKilometers = Math.round((lengthMetersNbr * 0.001) * 100) / 100
               var point = new google.maps.LatLng(
-                parseFloat(trail.Tracks[0].Cords[0].lat),
-                parseFloat(trail.Tracks[0].Cords[0].lon));
+                parseFloat(dbTrail.Tracks[0].Cords[0].lat),
+                parseFloat(dbTrail.Tracks[0].Cords[0].lon));
               var marker = new google.maps.Marker({
                 map: map,
                 position: point,
@@ -67,15 +70,14 @@ var map, infoWindow;
                 infoWindow.open(map, marker);
               });
             })
-          })
           
       }
-      trailMarkers(); 
+      trailMarker(); 
 
       }
 
-      $(document).on("click", ".trail-click", function() {
-        event.preventDefault();
-        var clickedId = $(this).attr("id");
-        window.location.href = "/trail/" + clickedId;
-      })
+      // $(document).on("click", ".trail-click", function() {
+      //   event.preventDefault();
+      //   var clickedId = $(this).attr("id");
+      //   window.location.href = "/trail/" + clickedId;
+      // })

@@ -13,17 +13,14 @@ const trailsController = require("../../controllers/trails_controller");
 module.exports = function (app) {
 
   // GET route for getting all of the todos
-  app.get("/api/trails", function (req, res) {
+  app.get("/api/trail/:trailId", function (req, res) {
     console.log("inside get api/trails")
-    trailsController.getAllParks(req, res)
-    // .then(function (dbPark) {
-    //   // We have access to the todos as an argument inside of the callback function
-    //   console.log("inside .then function")
-    //   res.json(dbPark);
-    // })
-    // .catch(function (err) {
-    //   res.status(422).json(err)
-    // })
+    trailsController.getOneTrail(req, res)
+  });
+
+  app.get("/api/trailOnly/:trailId", function (req, res) {
+    console.log("inside get api/trailOnly")
+    trailsController.getTrailOnly(req, res)
   });
 
 }

@@ -33,5 +33,15 @@ module.exports = {
       })
       .then(dbPark => res.json(dbPark))
       .catch(err => res.status(422).json(err));
-  }
+  },
+  getParkName: function (req, res) {
+    db.Park
+      .findOne({
+        where: {
+          "$park_id$": req.params.parkId
+        }
+      })
+      .then(dbPark => res.json(dbPark))
+      .catch(err => res.status(422).json(err));
+  },
 };

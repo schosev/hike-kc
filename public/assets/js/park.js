@@ -9,7 +9,15 @@ $( document ).ready(function() {
           console.log('Park ', dbPark);
           console.log("err", err);
 
+          var parkName = '<h1 class="park-name-header">' + dbPark.park_name + '</h1>';
+          $('.park-header').append(parkName);
+
             dbPark.Trails.forEach(function(trailInfo) {
+              var lengthMeters = trailInfo.Tracks[0].Cords.slice(-1)[0];
+              var lengthMetersNbr = parseFloat(lengthMeters.distance);
+              var lengthMiles = Math.round((lengthMetersNbr * 0.000621371) * 100) / 100
+              // var lengthKilometers = Math.round((lengthMetersNbr * 0.001) * 100) / 100
+
               var trailType = "";
               if (trailInfo.gravel) { trailType = 'Gravel'}
               else if (trailInfo.paved) {trailType = "Paved"}
@@ -28,6 +36,7 @@ $( document ).ready(function() {
                             '<div class="bold-font">' + trailInfo.trail_name + '</div>' +
                             '</div>' +
                             '<div>' +  '<span class="bold-font">Trail Description:</span> ' + trailInfo.trail_desc + '</div>' + 
+                            '<div>' + '<span class="bold-font">Length:</span> ' + lengthMiles + ' miles</div>' + 
                             '<div>' + '<span class="bold-font">Rating:</span> ' + trailInfo.trail_rating + '</div>' + 
                             '<div>' + '<span class="bold-font">Trail Type:</span> ' + trailType + '</div>' +
                             '<div>' + '<span class="bold-font">Activities:</span> ' + trailActList + '</div>' +

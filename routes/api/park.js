@@ -31,4 +31,9 @@ module.exports = function (app) {
     parksController.getOnePark(req, res)
   });
 
+  app.get("/api/parkName/:parkId", function (req, res) {
+    console.log("inside get api/parkName")
+    parksController.getParkName(req, res)
+  });
+
 }

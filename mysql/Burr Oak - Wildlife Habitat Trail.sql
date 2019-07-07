@@ -1,11 +1,11 @@
-INSERT INTO Trails (trail_name, trail_desc, trail_rating, hiking, mtb, walking, gravel, paved, single_track, mulch, createdAt, updatedAt, fk_park_id)
+INSERT INTO Trails (trail_name, trail_desc, trail_rating, trail_length_meters, trail_length_miles, hiking, mtb, walking, gravel, paved, single_track, mulch, createdAt, updatedAt, fk_park_id)
 VALUES("Wildlife Habitat Trail", "A gravel surface trail that shows how tree harvesting and thinning helps to improve forest health and wildlife habitat. Features along the trail include a hidden pond, restored woodlands, and glades. ", 
-3, TRUE, FALSE, TRUE, TRUE, FALSE, TRUE, FALSE, NOW(), NOW(), 2);
+3, 2443.68, 1.5, TRUE, FALSE, TRUE, TRUE, FALSE, TRUE, FALSE, NOW(), NOW(), 2);
 
 INSERT INTO Tracks (track_name, createdAt, updatedAt, fk_trail_id)
 VALUES("Wildlife Habitat Trail", NOW(), NOW(), 2);
 
-INSERT INTO Cords (lon, lat, distance, elev, ascent, descent, createdAt, updatedAt, fk_track_id)
+INSERT INTO Cords (lat, lon, distance, elev, ascent, descent, createdAt, updatedAt, fk_track_id)
 Value(39.0453676583,-94.2841277987,0,289.67,0,0,NOW(),NOW(),2),
 (39.0453643257,-94.2841175824,0.96,289.68,0,0,NOW(),NOW(),2),
 (39.0453603643,-94.2841047126,2.15,289.69,0.01,0,NOW(),NOW(),2),

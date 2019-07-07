@@ -2,29 +2,59 @@
   box-sizing: border-box;
 }
 
-html, body {
+/* html, body {
   height: 100%;
-}
+} */
 
 .navbar {
   height: 70px;
-  border-bottom: 5px solid black;
+  border-bottom: 2px solid black;
+  background-color: #996633;
+}
+
+.btn-outline-success {
+  color: #25310C;
+  border-color: #25310C;
 }
 
 .container-fluid {
-  height: 90%;
-  background-image: url("./images/snow-background.JPG");
-  background-size: cover;
+  height: 100%;
+  background-image: url("./images/background.jpg");
+  background-repeat: repeat;
+  background-size: auto;
+  padding-top: 100px;
   /* color: #fff; */
 }
 
 .main-row {
-  height: 600px;
+  height: 100%
 }
 
-.park-aside {
-  border: 2px solid #fff;
+.map-wrapper {
+  height: 400px;
+}
+
+.park-list {
+  /* color: #fff; */
+  border: 2px solid #000;
   background-color: #fff;
+  margin: 20px 0px;
+  /* max-height: 400px;
+  overflow: auto; */
+  padding-bottom: 15px;
+}
+
+.park-list h1 {
+  /* border-bottom: solid 2px; */
+  text-align: center;
+  color: #fff;
+  background-color: #996633;
+}
+
+.park-list-text {
+  padding: 0px 0px 10px 15px;
+  border-bottom: solid 1px;
+  margin-bottom: 10px;
 }
 
 .park-click:hover {
@@ -32,7 +62,7 @@ html, body {
 }
 
 .main-section {
-  border: 2px solid #fff;
+  /* border: 2px solid #fff; */
   padding: 0px;
 }
 
@@ -45,7 +75,42 @@ html, body {
 }
 
 /* trails page styling */
+
+.park-main {
+  height: 500px;
+}
+
 .trail-aside {
   border: 2px solid #fff;
   background-color: #fff;
+  overflow: auto;
+  height: 100%;
+}
+
+.park-name-header {
+  text-align: center;
+  background-color: #fff;
+}
+
+.trail-click:hover {
+  cursor: pointer;
+}
+
+/* single trail page styling */
+
+.trail-name-header {
+  text-align: center;
+  background-color: #fff;
+}
+
+.single-trail-text {
+  float: left;
+  width: 70%;
+  background-color: #fff;
+}
+
+.trail-main-section #map {
+  float: right;
+  width: 30%;
+  height: 300px;
 }

@@ -10,7 +10,7 @@
 </head>
 <body>
   <nav class="navbar fixed-top">
-    <a class="navbar-brand">Hike KC</a>
+    <a href="/" class="navbar-brand">Hike KC</a>
     <form class="form-inline">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -18,19 +18,23 @@
   </nav>
 
   <div class="container-fluid">
+    <div class="headers">
+      <div class="park-header">
+        <!-- javascript insert park name here -->
+      </div>
+      <div class="trail-header">
+        <!-- javascript insert Trail name here -->
+      </div>
+    </div>
     <div class="row main-row">
-      <div class="col-md-2"></div>
-
-      <section class="col-md-8 main-section">
-        <div class="map-wrapper">
-          <div id="map"></div>
+      <div class="col-md-1"></div>
+      <section class="col-md-10 main-section trail-main-section">
+        <div class="single-trail-text">
+          
         </div>
-        <div class="park-list">
-          <h1>List of Parks</h1>
-          <!-- <button class="btn test-btn" id="test-btn-id">FindAll</button> -->
-        </div>
+        <div id="map"></div>
       </section>
-      <div class="col-md-2"></div>
+      <div class="col-md-1"></div>
     </div>
   </div>
 
@@ -38,13 +42,13 @@
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery.js"></script>
-<script src="/assets/js/map.js"></script>
+<script src="/assets/js/trailMap.js"></script>
 <!-- <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=googleApiKey&callback=initMap">
     </script> -->
     <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCs36HDIO9xXLV8V3TgCnfVlUFg09DNXR8&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCs36HDIO9xXLV8V3TgCnfVlUFg09DNXR8&callback=initTrailMap">
     </script>
-    <script src="/assets/js/logic.js"></script>
+    <script src="/assets/js/trail.js"></script>
 
 </html> 

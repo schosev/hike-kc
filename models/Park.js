@@ -36,6 +36,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: true,
     },
+    total_trail_lngth_meters: {
+      type: DataTypes.DECIMAL(10,2),
+      allowNull: true,
+    },
     // created_at: {
     //   type: Sequelize.DATE(3),
     //   defaultValue: Sequelize.literal('CURRENT_TIMESTAMP(3)'),
