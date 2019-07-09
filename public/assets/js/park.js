@@ -12,6 +12,9 @@ $( document ).ready(function() {
           var parkName = '<h1 class="park-name-header">' + dbPark.park_name + '</h1>';
           $('.park-header').append(parkName);
 
+          var parkDetails = dbPark.park_desc_long;
+          $('.park-details').append(parkDetails);
+
             dbPark.Trails.forEach(function(trailInfo) {
               var lengthMeters = trailInfo.Tracks[0].Cords.slice(-1)[0];
               var lengthMetersNbr = parseFloat(lengthMeters.distance);
@@ -31,7 +34,8 @@ $( document ).ready(function() {
               if (trailInfo.walking) { trailAct.push("Walking")};
               var trailActList = trailAct.toString();
 
-              var trailText = '<div class="trail-click" id="' + trailInfo.trail_id + '">' +
+              var trailText = '<div class="trail-aside-wrapper">' +
+                            '<div class="trail-click" id="' + trailInfo.trail_id + '">' +
                             '<div>' + '<span class="bold-font">Marker:</span> ' + trailInfo.trail_id + '</div>' +
                             '<div class="bold-font">' + trailInfo.trail_name + '</div>' +
                             '</div>' +
@@ -40,8 +44,8 @@ $( document ).ready(function() {
                             '<div>' + '<span class="bold-font">Rating:</span> ' + trailInfo.trail_rating + '</div>' + 
                             '<div>' + '<span class="bold-font">Trail Type:</span> ' + trailType + '</div>' +
                             '<div>' + '<span class="bold-font">Activities:</span> ' + trailActList + '</div>' +
-                            // '</div>' +
-                            '<hr class="hr-separator">';
+                            '</div>';
+                            // '<hr class="hr-separator">';
               $('.trail-aside').append(trailText);
             })
   })

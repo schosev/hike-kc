@@ -17,10 +17,50 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    trail_desc: {
+    trail_desc_short: {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    trail_desc_long: {
+      type: DataTypes.TEXT,
+      allowNull: true,
+    },
+    // trail_desc_long_2: {
+    //   type: DataTypes.TEXT,
+    //   allowNull: true,
+    // },
+    // trail_desc_long_3: {
+    //   type: DataTypes.TEXT,
+    //   allowNull: true,
+    // },
+    // trail_desc_long_4: {
+    //   type: DataTypes.TEXT,
+    //   allowNull: true,
+    // },
+    // trail_desc_long_5: {
+    //   type: DataTypes.TEXT,
+    //   allowNull: true,
+    // },
+    // trail_desc_long_6: {
+    //   type: DataTypes.TEXT,
+    //   allowNull: true,
+    // },
+    // trail_desc_long_7: {
+    //   type: DataTypes.TEXT,
+    //   allowNull: true,
+    // },
+    // trail_desc_long_8: {
+    //   type: DataTypes.TEXT,
+    //   allowNull: true,
+    // },
+    // trail_desc_long_9: {
+    //   type: DataTypes.TEXT,
+    //   allowNull: true,
+    // },
+    // trail_desc_long_10: {
+    //   type: DataTypes.TEXT,
+    //   allowNull: true,
+    // },
     trail_rating: {
       type: DataTypes.INTEGER(1),
       allowNull: false,

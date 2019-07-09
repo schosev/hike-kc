@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="/assets/style.css" type="text/css" />
   
 </head>
-<body>
+<body class="body-100">
   <nav class="navbar fixed-top">
     <a href="/" class="navbar-brand">Hike KC</a>
     <form class="form-inline">
@@ -18,12 +18,23 @@
   </nav>
 
   <div class="container-fluid">
-    <div class="park-header">
-      <!-- javascript insert park name here -->
+    <div class="row">
+      <div class="col-md-1"></div>
+        <div class="col-md-10 park-header">
+          <!-- javascript insert park name here -->
+        </div>
+      <div class="col-md-1"></div>
     </div>
+    <div class="row">
+        <div class="col-md-1"></div>
+          <div class="col-md-10 park-details">
+            <!-- javascript insert park details here -->
+          </div>
+        <div class="col-md-1"></div>
+      </div>
     <div class="row main-row park-main">
       <div class="col-md-1"></div>
-      <aside class="col-md-2 trail-aside">
+      <aside class="col-md-2 trail-aside main-list-sect">
         <h1>List of Trails</h1>
         <!-- <button class="btn test-btn" id="test-btn-id">FindAll</button> -->
       </aside>

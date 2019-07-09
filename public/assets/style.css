@@ -2,9 +2,9 @@
   box-sizing: border-box;
 }
 
-/* html, body {
+html, .body-100 {
   height: 100%;
-} */
+}
 
 .navbar {
   height: 70px;
@@ -20,8 +20,11 @@
 .container-fluid {
   height: 100%;
   background-image: url("./images/background.jpg");
-  background-repeat: repeat;
-  background-size: auto;
+  /* background-repeat: repeat;
+  background-size: auto; */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   padding-top: 100px;
   /* color: #fff; */
 }
@@ -34,21 +37,24 @@
   height: 400px;
 }
 
-.park-list {
+.main-list-sect {
   /* color: #fff; */
   border: 2px solid #000;
   background-color: #fff;
-  margin: 20px 0px;
   /* max-height: 400px;
   overflow: auto; */
   padding-bottom: 15px;
 }
 
-.park-list h1 {
+.main-list-sect h1 {
   /* border-bottom: solid 2px; */
   text-align: center;
   color: #fff;
   background-color: #996633;
+}
+
+.park-list {
+  margin: 20px 0px;
 }
 
 .park-list-text {
@@ -81,15 +87,40 @@
 }
 
 .trail-aside {
-  border: 2px solid #fff;
+  border: 2px solid #000;
   background-color: #fff;
   overflow: auto;
   height: 100%;
+  padding: 0px;
+}
+
+.trail-aside h1 {
+  margin: 0px;
+  padding: 0px;
+}
+
+.trail-aside-wrapper {
+  padding: 15px;
+  border-bottom: solid #000 1px;
+}
+
+.park-header {
+  padding: 0px;
+  border: solid #000 2px;
+}
+
+.park-details {
+  background-color: #fff;
+  margin-bottom: 20px;
+  border: solid 2px #000;
 }
 
 .park-name-header {
   text-align: center;
-  background-color: #fff;
+  /* background-color: #fff; */
+  color: #fff;
+  background-color: #996633;
+  margin-bottom: 0px;
 }
 
 .trail-click:hover {

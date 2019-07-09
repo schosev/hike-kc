@@ -13,7 +13,7 @@ $( document ).ready(function() {
                     '</div>' +
                     '<div>' + parkInfo.park_address + '</div>' + 
                     '<div><span class="bold-font">Total Trails:</span> ' + totalMiles + ' Miles</div>' +
-                    '<div>' +  '<span class="bold-font">Park Description:</span> ' + parkInfo.park_desc + '</div>' + 
+                    '<div>' +  '<span class="bold-font">Park Description:</span> ' + parkInfo.park_desc_short + '</div>' + 
                     '<div>' + '<span class="bold-font">Rating:</span> ' + parkInfo.park_rating + '</div>' + 
                     '</div>' +
                     '</div>'
