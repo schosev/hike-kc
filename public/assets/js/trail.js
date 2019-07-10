@@ -39,15 +39,11 @@ $( document ).ready(function() {
     if (dbTrail.walking) { trailAct.push("Walking")};
     var trailActList = trailAct.toString();
 
-    var trailText = '<div class="bold-font">' + dbTrail.trail_name + '</div>' +
-                  '</div>' +
-                  '<div>' +  '<span class="bold-font">Trail Description:</span> ' + dbTrail.trail_desc + '</div>' + 
+    var trailText = '<div>' +  '<span class="bold-font">Trail Description:</span> ' + dbTrail.trail_desc_long + '</div>' + 
                   '<div>' + '<span class="bold-font">Length:</span> ' + lengthMiles + ' miles</div>' + 
                   '<div>' + '<span class="bold-font">Rating:</span> ' + dbTrail.trail_rating + '</div>' + 
                   '<div>' + '<span class="bold-font">Trail Type:</span> ' + trailType + '</div>' +
-                  '<div>' + '<span class="bold-font">Activities:</span> ' + trailActList + '</div>' +
-                  // '</div>' +
-                  '<hr class="hr-separator">';
+                  '<div>' + '<span class="bold-font">Activities:</span> ' + trailActList + '</div>';
     $('.single-trail-text').append(trailText);
   })
 

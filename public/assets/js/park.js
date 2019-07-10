@@ -39,7 +39,7 @@ $( document ).ready(function() {
                             '<div>' + '<span class="bold-font">Marker:</span> ' + trailInfo.trail_id + '</div>' +
                             '<div class="bold-font">' + trailInfo.trail_name + '</div>' +
                             '</div>' +
-                            '<div>' +  '<span class="bold-font">Trail Description:</span> ' + trailInfo.trail_desc + '</div>' + 
+                            '<div>' +  '<span class="bold-font">Trail Description:</span> ' + trailInfo.trail_desc_short + '</div>' + 
                             '<div>' + '<span class="bold-font">Length:</span> ' + lengthMiles + ' miles</div>' + 
                             '<div>' + '<span class="bold-font">Rating:</span> ' + trailInfo.trail_rating + '</div>' + 
                             '<div>' + '<span class="bold-font">Trail Type:</span> ' + trailType + '</div>' +
