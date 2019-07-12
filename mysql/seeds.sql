@@ -11,13 +11,13 @@ VALUES("Burr Oak Woods Conservation Area", "Burr Oak  includes steep forested hi
  <p>It has a rich diversity of wildlife species. Deer, turkey, squirrels, raccoons, coyotes, and songbirds are commonly seen. A special bird watching area is available in the nature center.</p>
  <h6>Burr Oak Woods Conservation Nature Center</h6><p>The nature center opened in 1982 and features state of the art hands-on conservation exhibits. Check out the larger than life children’s area and the brand new exhibits added in 2016 featuring streams and forests.</p>
  <p>The center serves as a focal point of nature interpretation and conservation education with its 168-seat auditorium and 3000-gallon aquarium. Meet native fish and live reptiles and amphibians up close. Special events and programs are scheduled throughout the year. Conservation programs are available to organized groups upon advance request.</p>
- <p>The nature center is open from 8:00 a.m. to 5:00 p.m. Tuesday through Saturday. The nature center is closed Sunday, Monday, and all state holidays.</p>,
+ <p>The nature center is open from 8:00 a.m. to 5:00 p.m. Tuesday through Saturday. The nature center is closed Sunday, Monday, and all state holidays.</p>",
  -- NUll, NULL, NULL, NULL, NULL,
  "1401 NW Park Rd., Blue Springs, MO 64015", 5, -94.28983, 39.049292, 931, 4341.87, NOW(), NOW());
 
 -- INSERT INTO Trails (trail_name, trail_desc_short, trail_desc_long_1, trail_desc_long_2, trail_desc_long_3, trail_desc_long_4, trail_desc_long_5, trail_desc_long_6, trail_desc_long_7, trail_desc_long_8, trail_desc_long_9, trail_desc_long_10, trail_rating, trail_length_meters, trail_length_miles, hiking, mtb, walking, gravel, paved, single_track, mulch, createdAt, updatedAt, fk_park_id)
-INSERT INTO Trails (trail_name, trail_desc_short, trail_desc_long, trail_rating, trail_length_meters, trail_length_miles, hiking, mtb, walking, gravel, paved, single_track, mulch, createdAt, updatedAt, fk_park_id)
-VALUES("Test Trail", "Test trail description", "Test trail long description", 4, 1900.01, 1.5, TRUE, TRUE, FALSE, FALSE, FALSE, TRUE, FALSE, NOW(), NOW(), 1);
+INSERT INTO Trails (trail_name, trail_desc_short, trail_desc_long, trail_rating, trail_diff, trail_length_meters, trail_length_miles, hiking, mtb, walking, gravel, paved, single_track, mulch, createdAt, updatedAt, fk_park_id)
+VALUES("Test Trail", "Test trail description", "Test trail long description", 4, 2, 1900.01, 1.5, TRUE, TRUE, FALSE, FALSE, FALSE, TRUE, FALSE, NOW(), NOW(), 1);
 
 INSERT INTO Tracks (track_name, createdAt, updatedAt, fk_trail_id)
 VALUES("Test track name", NOW(), NOW(), 1);

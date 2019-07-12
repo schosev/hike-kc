@@ -1,7 +1,7 @@
-INSERT INTO Trails (trail_name, trail_desc_short, trail_desc_long, trail_rating, trail_length_meters, trail_length_miles, hiking, mtb, walking, gravel, paved, single_track, mulch, createdAt, updatedAt, fk_park_id)
+INSERT INTO Trails (trail_name, trail_desc_short, trail_desc_long, trail_rating, trail_diff, trail_length_meters, trail_length_miles, hiking, mtb, walking, gravel, paved, single_track, mulch, createdAt, updatedAt, fk_park_id)
 VALUES("Hickory Grove Trail", "A gravel surface, linear trail that travels through outlying areas of Burr Oak Woods.", 
 "<p>A gravel surface, linear trail that travels through outlying areas of Burr Oak Woods.</p>",
-3, 1898.19, 1.2, TRUE, FALSE, TRUE, TRUE, FALSE, TRUE, FALSE, NOW(), NOW(), 2);
+3, 1, 1898.19, 1.2, TRUE, FALSE, TRUE, TRUE, FALSE, TRUE, FALSE, NOW(), NOW(), 2);
 
 INSERT INTO Tracks (track_name, createdAt, updatedAt, fk_trail_id)
 VALUES("Hickory Grove Trail", NOW(), NOW(), 3);

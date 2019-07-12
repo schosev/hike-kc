@@ -39,9 +39,26 @@ $( document ).ready(function() {
     if (dbTrail.walking) { trailAct.push("Walking")};
     var trailActList = trailAct.toString();
 
+    var trailDiff;
+    var trailDiffImg;
+    if (dbTrail.trail_diff == 1) {
+      trailDiff = "Easy";
+      trailDiffImg = '<img src="./../images/green_circle.png" alt="Green Circle" class="diff-img">';
+    } else if (dbTrail.trail_diff == 2) {
+      trailDiff = "Moderate";
+      trailDiffImg = '<img src="../images/blue_square.png" alt="Blue Square" class="diff-img">';
+    } else if (dbTrail.trail_diff == 3) {
+      trailDiff = "Difficult";
+      trailDiffImg = '<img src="../images/black_diamond.png" alt="Black Diamond" class="diff-img">';
+    } else if (dbTrail.trail_diff == 4) {
+      trailDiff = "Most Difficult";
+      trailDiffImg = '<img src="./../images/double_black_diamond.png" alt="Double Black Diamond" class="diff-img">'
+    };
+
     var trailText = '<div>' +  '<span class="bold-font">Trail Description:</span> ' + dbTrail.trail_desc_long + '</div>' + 
                   '<div>' + '<span class="bold-font">Length:</span> ' + lengthMiles + ' miles</div>' + 
                   '<div>' + '<span class="bold-font">Rating:</span> ' + dbTrail.trail_rating + '</div>' + 
+                  '<div>' + '<span class="bold-font">Difficulty:</span> ' + trailDiffImg + ' ' + trailDiff + '</div>' + 
                   '<div>' + '<span class="bold-font">Trail Type:</span> ' + trailType + '</div>' +
                   '<div>' + '<span class="bold-font">Activities:</span> ' + trailActList + '</div>';
     $('.single-trail-text').append(trailText);

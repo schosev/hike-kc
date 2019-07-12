@@ -1,7 +1,7 @@
-INSERT INTO Trails (trail_name, trail_desc_short, trail_desc_long, trail_rating, trail_length_meters, trail_length_miles, hiking, mtb, walking, gravel, paved, single_track, mulch, createdAt, updatedAt, fk_park_id)
+INSERT INTO Trails (trail_name, trail_desc_short, trail_desc_long, trail_rating, trail_diff, trail_length_meters, trail_length_miles, hiking, mtb, walking, gravel, paved, single_track, mulch, createdAt, updatedAt, fk_park_id)
 VALUES("Wildlife Habitat Trail", "A gravel surface trail that shows how tree harvesting and thinning helps to improve forest health and wildlife habitat. Features along the trail include a hidden pond, restored woodlands, and glades. ", 
 "<p>A self-guided, educational, gravel surface trail that shows how tree harvesting and thinning helps to improve forest health and wildlife habitat. Features the trail include a hidden pond, restored woodlands, and glades. The educational trail is only on the shorter loop option.</p>",
-3, 2443.68, 1.5, TRUE, FALSE, TRUE, TRUE, FALSE, TRUE, FALSE, NOW(), NOW(), 2);
+3, 1, 2443.68, 1.5, TRUE, FALSE, TRUE, TRUE, FALSE, TRUE, FALSE, NOW(), NOW(), 2);
 
 INSERT INTO Tracks (track_name, createdAt, updatedAt, fk_trail_id)
 VALUES("Wildlife Habitat Trail", NOW(), NOW(), 2);

@@ -65,6 +65,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER(1),
       allowNull: false,
     },
+    trail_diff: {
+      type: DataTypes.INTEGER(1),
+      allowNull: true,
+    },
     trail_length_meters: {
       type: DataTypes.DECIMAL(10,2),
       allowNull: true,
