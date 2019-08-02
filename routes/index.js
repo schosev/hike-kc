@@ -22,6 +22,10 @@ router.get("/park/:parkId", function(req, res) {
   res.sendFile(path.join(__dirname, "..", "./views/park.html"));
 });
 
+router.get("/search/:searchValue", function(req, res) {
+  res.sendFile(path.join(__dirname, "..", "./views/search.html"));
+});
+
 // router.use((req, res) => {
 //   res.sendFile(path.join(__dirname, "..", "./views/index.html"));
 // });

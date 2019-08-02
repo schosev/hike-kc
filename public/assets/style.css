@@ -9,12 +9,25 @@
 .navbar {
   height: 70px;
   border-bottom: 2px solid black;
-  background-color: #996633;
+  /* background-color: #996633; */
+  /* background-color: #d2ab67; */
+  background-color: #ac7339;
 }
+
+.navbar a, a.navbar-brand {
+  font-size: 30px;
+  color: #fff;
+  font-weight: 700;
+}
+
+/* a.navbar-brand:visited, a.navbar-brand:active {
+  color: #fff !important;
+} */
 
 .btn-outline-success {
   color: #25310C;
   border-color: #25310C;
+  background-color: #28a745;
 }
 
 .container-fluid {
@@ -51,7 +64,7 @@
   /* border-bottom: solid 2px; */
   text-align: center;
   color: #fff;
-  background-color: #996633;
+  background-color: #ac7339;
 }
 
 .park-list {
@@ -120,7 +133,7 @@
   text-align: center;
   /* background-color: #fff; */
   color: #fff;
-  background-color: #996633;
+  background-color: #ac7339;
   margin-bottom: 0px;
 }
 
@@ -162,4 +175,24 @@
 .diff-img {
   width: 20px;
   height: 20px;
+  margin-bottom: 1px;
+}
+
+/* search page styling */
+
+/* .park-results-head, .trail-results-head {
+  border-bottom: solid #000 2px;
+} */
+
+.search-results-wrapper {
+  padding: 15px;
+}
+
+.park-results-list, .trail-results-list {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.park-search-text, .trail-search-text {
+  border-bottom: solid #D3D3D3 1px;
 }

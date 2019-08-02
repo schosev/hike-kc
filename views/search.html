@@ -10,10 +10,10 @@
 </head>
 <body>
   <nav class="navbar fixed-top">
-    <a href="" class="navbar-brand">Hike KC</a>
+    <a href="/" class="navbar-brand">Hike KC</a>
     <form class="form-inline">
-      <input class="form-control mr-sm-2" type="search" id="search-value" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0 search-btn" type="submit">Search</button>
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
   </nav>
 
@@ -22,12 +22,22 @@
       <div class="col-md-2"></div>
 
       <section class="col-md-8 main-section">
-        <div class="map-wrapper">
-          <div id="map"></div>
-        </div>
-        <div class="park-list main-list-sect">
-          <h1>List of Parks</h1>
-          <!-- <button class="btn test-btn" id="test-btn-id">FindAll</button> -->
+        <div class="search-list main-list-sect">
+          <h1>Search Results</h1>
+          <div class="search-results-wrapper">
+            <div class="park-results-head">
+              <!-- <h3>Park Results</h3> -->
+            </div>
+            <div class="park-results-list">
+              <!-- search.js inserts results here -->
+            </div>
+            <div class="trail-results-head">
+              <!-- <h3>Trail Results</h3> -->
+            </div> 
+            <div class="trail-results-list">
+              <!-- search.js inserts results here -->
+            </div> 
+          </div>
         </div>
       </section>
       <div class="col-md-2"></div>
@@ -38,13 +48,9 @@
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery.js"></script>
-<script src="/assets/js/map.js"></script>
 <!-- <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=googleApiKey&callback=initMap">
     </script> -->
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCs36HDIO9xXLV8V3TgCnfVlUFg09DNXR8&callback=initMap">
-    </script>
-    <script src="/assets/js/logic.js"></script>
+    <script src="/assets/js/search.js"></script>
 
 </html> 

@@ -23,4 +23,8 @@ module.exports = function (app) {
     trailsController.getTrailOnly(req, res)
   });
 
+  app.get("/api/allTrails/:searchTxt", function (req, res) {
+    console.log("inside get api/allTrails")
+    trailsController.getAllTrails(req, res)
+  });
 }

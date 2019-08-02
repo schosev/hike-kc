@@ -21,18 +21,12 @@ $( document ).ready(function() {
       $('.park-list').append(parkText);
     })
   })
-  // $( "#test-btn-id" ).click(function() {
-  //   console.log("inside button click");
-  //   $.get("/api/trails", function(dbPark, err) {
-  //       // window.location.href = "/";
-  //       console.log('Park ', dbPark);
-  //       console.log("err", err);
-  //   })
-  // })
 
-  // $(".park-aside").on("click", ".park-click", function() {
-  //   var clickedId = $(this).attr("id");
-  //   console.log("clickedId ", clickedId);
-  //   // $.get("/park",)
-  // })
+  $( ".search-btn" ).click(function() {
+    event.preventDefault();
+    console.log("inside search button click");
+    var searchValue = $("#search-value").val().trim().toLowerCase();
+    window.location.href = "/search/" + searchValue;
+  $('#search-value').val('');
+  })
 });

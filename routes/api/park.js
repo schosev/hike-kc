@@ -36,4 +36,9 @@ module.exports = function (app) {
     parksController.getParkName(req, res)
   });
 
+  app.get("/api/allParks/:searchTxt", function (req, res) {
+    console.log("inside get api/allParks")
+    parksController.getAllParks(req, res)
+  });
+
 }
