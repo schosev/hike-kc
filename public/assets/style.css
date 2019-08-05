@@ -25,9 +25,11 @@
 } */
 
 .btn-outline-success {
-  color: #25310C;
-  border-color: #25310C;
-  background-color: #28a745;
+  /* color: #25310C;
+  border-color: #25310C; */
+  color: #fff;
+  border-color: #fff;
+  background-color: #225e2b;
 }
 
 .container-fluid {

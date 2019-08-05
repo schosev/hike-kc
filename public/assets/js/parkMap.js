@@ -25,10 +25,11 @@ var map, infoWindow;
           map.setCenter(pos);
           map.setZoom(15);
           map.setMapTypeId(google.maps.MapTypeId.HYBRID);
-          
+
+          var pathColor = ["#ff3300", "#ffff00", "#00ffff", "#6600cc", "#660066", "#2e5cb8", "#ff6600"];
+          var x = 0;
           
           dbPark.Trails.forEach(function(trail) {
-            
             trail.Tracks.forEach(function(track) {
               var cordArray = [];
               track.Cords.forEach(function(cords) {
@@ -36,16 +37,25 @@ var map, infoWindow;
               })
               console.log("cordArray lat: " + cordArray[0].lat);
               console.log("cordArray lng: " + cordArray[0].lng);
-              
+
+              var latLngBounds = new google.maps.LatLngBounds();
+                for(var i = 0; i < cordArray.length; i++) {
+                  latLngBounds.extend(cordArray[i]);
+                };
+
               var trailPath = new google.maps.Polyline({
                 path: cordArray,
                 geodesic: true,
-                strokeColor: '#FF0000',
+                // strokeColor: '#FF0000',
+                strokeColor: pathColor[x],
                 strokeOpacity: 1.0,
-                strokeWeight: 2
+                strokeWeight: 2,                
               });
+              x++;
               trailPath.setMap(map);
-              })
+
+              map.fitBounds(latLngBounds);
+            })
               var trailId = trail.trail_id.toString();
               var name = trail.trail_name;
               var rating = trail.trail_rating;
@@ -61,6 +71,7 @@ var map, infoWindow;
                 position: point,
                 label: trailId
               });
+
               marker.addListener('click', function() {
                 infoWindow.setContent('<div class="trail-click" id="' + trailId + '">' + '<span class="bold-font">' + name + '</span>' + '<br>' + 
                 'Rating: ' + rating + '<br>' + 'Length: ' + lengthMiles + ' miles</div>');

@@ -39,6 +39,11 @@ var map, infoWindow;
               })
               console.log("cordArray lat: " + cordArray[0].lat);
               console.log("cordArray lng: " + cordArray[0].lng);
+
+              var latLngBounds = new google.maps.LatLngBounds();
+                for(var i = 0; i < cordArray.length; i++) {
+                  latLngBounds.extend(cordArray[i]);
+                };
               
               var trailPath = new google.maps.Polyline({
                 path: cordArray,
@@ -48,6 +53,7 @@ var map, infoWindow;
                 strokeWeight: 2
               });
               trailPath.setMap(map);
+              map.fitBounds(latLngBounds);
               })
               var trailId = dbTrail.trail_id.toString();
               var name = dbTrail.trail_name;
