@@ -4,12 +4,7 @@ var connection;
 if (process.env.JAWSDB_URL) {
   connection = mysql.createConnection(process.env.JAWSDB_URL);
 } else {
-  connection = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "odessa01",
-    database: "hikekc_db"
-  });
+  connection = mysql.createConnection(process.env.HIKEKC_DEV_DB);
 };
 
 connection.connect(err => {

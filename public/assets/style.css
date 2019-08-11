@@ -11,18 +11,31 @@
   border-bottom: 2px solid black;
   /* background-color: #996633; */
   /* background-color: #d2ab67; */
-  background-color: #ac7339;
+  /* background-color: #ac7339; */
+  background-color: #fff;
 }
 
-.navbar a, a.navbar-brand {
+/* .navbar a, a.navbar-brand {
   font-size: 30px;
   color: #fff;
   font-weight: 700;
+} */
+.fixed-top {
+  padding-top: 0px;
+}
+
+.navbar-brand img {
+  width: 15%;
+  height: 15%;
 }
 
 /* a.navbar-brand:visited, a.navbar-brand:active {
   color: #fff !important;
 } */
+
+.form-control {
+  border-color: #225e2b;
+}
 
 .btn-outline-success {
   /* color: #25310C;
