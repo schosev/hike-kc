@@ -23,7 +23,9 @@ module.exports = {
           //   where: {track_id: db.Trail.trail_id}
           // ,
             include: [{
-              model: db.Cord,
+              all: true,
+              //model: db.Cord,
+              //model: db.Image,
               // where: {cord_id: db.Track.cord_id}
             }],
       //       order: [[{model: db.Cord}, "track_id", "cord_id" ]] 

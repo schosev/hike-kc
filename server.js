@@ -6,6 +6,7 @@ const routes = require("./routes");
 var db = require("./models");
 require('dotenv').config();
 const application = require("./routes/application");
+var aws = require('aws-sdk');
 
 const PORT = process.env.PORT || 3001;
 

@@ -14,6 +14,12 @@ VALUES("Burr Oak Woods Conservation Area", "Burr Oak  includes steep forested hi
  <p>The nature center is open from 8:00 a.m. to 5:00 p.m. Tuesday through Saturday. The nature center is closed Sunday, Monday, and all state holidays.</p>",
  -- NUll, NULL, NULL, NULL, NULL,
  "1401 NW Park Rd., Blue Springs, MO 64015", 5, -94.28983, 39.049292, 931, 4341.87, NOW(), NOW());
+ 
+INSERT INTO Parks (park_name, park_desc_short, park_desc_long, park_address, park_rating, park_lon, park_lat, park_elev, total_trail_lngth_meters, createdAt, updatedAt)
+VALUES("South Lake Park", "City park with a small lake, playground, and short paved trail",
+ "<p>South Lake Park is a city park with a small lake.  There is a short paved trail that circles the lake.  You can fish in the lake and there is a playground for kids.",
+ -- NUll, NULL, NULL, NULL, NULL,
+ "7601 W 86th St, Overland Park, KS 66212", 3, -94.673884, 38.973061, 309, 0.0, NOW(), NOW());
 
 -- INSERT INTO Trails (trail_name, trail_desc_short, trail_desc_long_1, trail_desc_long_2, trail_desc_long_3, trail_desc_long_4, trail_desc_long_5, trail_desc_long_6, trail_desc_long_7, trail_desc_long_8, trail_desc_long_9, trail_desc_long_10, trail_rating, trail_length_meters, trail_length_miles, hiking, mtb, walking, gravel, paved, single_track, mulch, createdAt, updatedAt, fk_park_id)
 INSERT INTO Trails (trail_name, trail_desc_short, trail_desc_long, trail_rating, trail_diff, trail_length_meters, trail_length_miles, hiking, mtb, walking, gravel, paved, single_track, mulch, createdAt, updatedAt, fk_park_id)
@@ -29,3 +35,4 @@ select * from Parks;
 select * from Trails;
 select * from Tracks;
 select * from cords;
+select * from Images;

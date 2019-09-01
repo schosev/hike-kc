@@ -37,8 +37,11 @@ db.Park.hasMany(db.Trail, { foreignKey: 'fk_park_id', sourceKey: 'park_id', onDe
 db.Trail.belongsTo(db.Park, { foreignKey: 'fk_park_id', targetKey: 'park_id', onDelete: 'cascade'});
 db.Trail.hasMany(db.Track, { foreignKey: 'fk_trail_id', sourceKey: 'trail_id', onDelete: 'cascade'});
 db.Track.belongsTo(db.Trail, { foreignKey: 'fk_trail_id', targetKey: 'trail_id', onDelete: 'cascade'})
-db.Track.hasMany(db.Cord, { foreignKey: 'fk_track_id', sourceKey: 'track_id', onDelete: 'cascade'});
-db.Cord.belongsTo(db.Track, { foreignKey: 'fk_track_id', targetKey: 'track_id', onDelete: 'cascade'});
+db.Track.hasMany(db.Image, { foreignKey: 'fk_track_id', constraints: false, sourceKey: 'track_id', onDelete: 'cascade'});
+db.Image.belongsTo(db.Track, { foreignKey: 'fk_track_id', constraints: false, targetKey: 'track_id', onDelete: 'cascade'});
+db.Track.hasMany(db.Cord, { foreignKey: 'fk_track_id', constraints: false, sourceKey: 'track_id', onDelete: 'cascade'});
+db.Cord.belongsTo(db.Track, { foreignKey: 'fk_track_id', constraints: false, targetKey: 'track_id', onDelete: 'cascade'});
+
 
 // db.Park.hasMany(db.Trail, { foreignKey: 'fk_park_id', sourceKey: 'park_id', onDelete: 'cascade'});
 // db.Trail.belongsTo(db.Park, { foreignKey: 'fk_park_id', targetKey: 'park_id', onDelete: 'cascade'});
