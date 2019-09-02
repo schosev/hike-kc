@@ -54,7 +54,28 @@ var map, infoWindow;
               });
               trailPath.setMap(map);
               map.fitBounds(latLngBounds);
+
+              track.Images.forEach(function(images) {
+                var imageId = images.image_id.toString();
+                var smImage = "/assets/images/camera-icon-sm.png";
+
+                var pointImage = new google.maps.LatLng(
+                  parseFloat(images.lat),
+                  parseFloat(images.lon));
+                var markerImage = new google.maps.Marker({
+                  map: map,
+                  position: pointImage,
+                  icon: "/assets/images/camera-icon-25.png",
+                });
+
+                markerImage.addListener('click', function() {
+                  infoWindow.setContent('<div class="image-click" id="' + imageId + '">' + '<img src="' + smImage + '" class="info-window-image" alt="Trail Image" />' + 
+                  '</div>');
+                  infoWindow.open(map, markerImage);
+                });
+
               })
+            })
               var trailId = dbTrail.trail_id.toString();
               var name = dbTrail.trail_name;
               var rating = dbTrail.trail_rating;
@@ -87,3 +108,16 @@ var map, infoWindow;
       //   var clickedId = $(this).attr("id");
       //   window.location.href = "/trail/" + clickedId;
       // })
+
+      $(document).on("click", ".image-click", function() {
+        event.preventDefault();
+        var imageClickedId = $(this).attr("id");
+        var imageClickedSrc = $(this).find('img').attr('src');
+        console.log("imageClickedId ", imageClickedId);
+        console.log("imageClickedSrc ", imageClickedSrc);
+
+        var modalImageSrc = '<img src="' + imageClickedSrc + '" alt="Trail Image" />';
+          $('.modal-body').append(modalImageSrc);
+
+        $('#imageModal').modal('show')
+      })

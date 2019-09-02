@@ -12,7 +12,8 @@ module.exports = {
           model: db.Track
         ,
           include: [{
-            model: db.Cord
+            // model: db.Cord
+            all: true
           }]
         }]
       })

@@ -32,7 +32,6 @@ $( document ).ready(function() {
               if (trailInfo.hiking) { trailAct.push("Hiking")};
               if (trailInfo.mtb) { trailAct.push("Mountain Biking")};
               if (trailInfo.walking) { trailAct.push("Walking")};
-              var trailActList = trailAct.toString();
 
               var trailText = '<div class="trail-aside-wrapper">' +
                             '<div class="trail-click" id="' + trailInfo.trail_id + '">' +
@@ -43,11 +42,18 @@ $( document ).ready(function() {
                             '<div>' + '<span class="bold-font">Length:</span> ' + lengthMiles + ' miles</div>' + 
                             '<div>' + '<span class="bold-font">Rating:</span> ' + trailInfo.trail_rating + '</div>' + 
                             '<div>' + '<span class="bold-font">Trail Type:</span> ' + trailType + '</div>' +
-                            '<div>' + '<span class="bold-font">Activities:</span> ' + trailActList + '</div>' +
+                            '<div>' + '<span class="bold-font">Activities:</span> ' + trailAct.join(", ") + '</div>' +
                             '</div>';
                             // '<hr class="hr-separator">';
               $('.trail-aside').append(trailText);
+
+              var modalImageName = '<h5 class="modal-title" id="imageModalLabel">' + trailInfo.trail_name + '</h5>';
+                $('.modal-title-wrapper').append(modalImageName);
             })
+  })
+
+  $('#imageModal').on('hidden.bs.modal', function (e) {
+    $('.modal-body').text("");
   })
 
 });

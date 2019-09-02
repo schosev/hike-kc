@@ -57,6 +57,9 @@ var map, infoWindow;
               map.fitBounds(latLngBounds);
 
               track.Images.forEach(function(images) {
+                var imageId = images.image_id.toString();
+                var smImage = "/assets/images/camera-icon-sm.png";
+
                 var pointImage = new google.maps.LatLng(
                   parseFloat(images.lat),
                   parseFloat(images.lon));
@@ -65,6 +68,13 @@ var map, infoWindow;
                   position: pointImage,
                   icon: "/assets/images/camera-icon-25.png",
                 });
+
+                markerImage.addListener('click', function() {
+                  infoWindow.setContent('<div class="image-click" id="' + imageId + '">' + '<img src="' + smImage + '" class="info-window-image" alt="Trail Image" />' + 
+                  '</div>');
+                  infoWindow.open(map, markerImage);
+                });
+
               })
             })
               var trailId = trail.trail_id.toString();
@@ -129,4 +139,17 @@ var map, infoWindow;
         event.preventDefault();
         var clickedId = $(this).attr("id");
         window.location.href = "/trail/" + clickedId;
+      })
+
+      $(document).on("click", ".image-click", function() {
+        event.preventDefault();
+        var imageClickedId = $(this).attr("id");
+        var imageClickedSrc = $(this).find('img').attr('src');
+        console.log("imageClickedId ", imageClickedId);
+        console.log("imageClickedSrc ", imageClickedSrc);
+
+        var modalImageSrc = '<img src="' + imageClickedSrc + '" alt="Trail Image" />';
+          $('.modal-body').append(modalImageSrc);
+
+        $('#imageModal').modal('show')
       })

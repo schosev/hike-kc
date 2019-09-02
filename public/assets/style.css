@@ -211,3 +211,11 @@
 .park-search-text, .trail-search-text {
   border-bottom: solid #D3D3D3 1px;
 }
+
+.modal {
+ top: 100px;
+}
+
+.info-window-image {
+  max-width: 35px;
+}

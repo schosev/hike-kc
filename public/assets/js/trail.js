@@ -60,8 +60,11 @@ $( document ).ready(function() {
                   '<div>' + '<span class="bold-font">Rating:</span> ' + dbTrail.trail_rating + '</div>' + 
                   '<div>' + '<span class="bold-font">Difficulty:</span> ' + trailDiffImg + ' ' + trailDiff + '</div>' + 
                   '<div>' + '<span class="bold-font">Trail Type:</span> ' + trailType + '</div>' +
-                  '<div>' + '<span class="bold-font">Activities:</span> ' + trailActList + '</div>';
+                  '<div>' + '<span class="bold-font">Activities:</span> ' + trailAct.join(", ") + '</div>';
     $('.single-trail-text').append(trailText);
+
+    var modalImageName = '<h5 class="modal-title" id="imageModalLabel">' + dbTrail.trail_name + '</h5>';
+                $('.modal-title-wrapper').append(modalImageName);
   })
 
   $(document).on("click", ".park-name-header", function() {
@@ -71,6 +74,10 @@ $( document ).ready(function() {
     // console.log("clickedId ", clickedId);
     // console.log("clickedIdNbr ", clickedIdNbr);
     window.location.href = "/park/" + clickedId;
+  })
+
+  $('#imageModal').on('hidden.bs.modal', function (e) {
+    $('.modal-body').text("");
   })
 
 });
