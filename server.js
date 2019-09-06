@@ -35,6 +35,7 @@ app.use(express.static("public"));
 app.use(routes);  
 require("./routes/api/trail.js")(app);
 require("./routes/api/park.js")(app);
+require("./routes/api/image.js")(app);
 // require("./routes/api-routes.js")(app);
 
 db.sequelize.sync({ force: false }).then(function () {

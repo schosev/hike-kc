@@ -55,6 +55,27 @@ var map, infoWindow;
               trailPath.setMap(map);
 
               map.fitBounds(latLngBounds);
+
+              track.Images.forEach(function(images) {
+                var imageId = images.image_id.toString();
+                var smImage = "/assets/images/camera-icon-sm.png";
+
+                var pointImage = new google.maps.LatLng(
+                  parseFloat(images.lat),
+                  parseFloat(images.lon));
+                var markerImage = new google.maps.Marker({
+                  map: map,
+                  position: pointImage,
+                  icon: "/assets/images/camera-icon-25.png",
+                });
+
+                markerImage.addListener('click', function() {
+                  infoWindow.setContent('<div class="image-click" id="' + imageId + '">' + '<img src="' + smImage + '" class="info-window-image" alt="Trail Image" />' + 
+                  '</div>');
+                  infoWindow.open(map, markerImage);
+                });
+
+              })
             })
               var trailId = trail.trail_id.toString();
               var name = trail.trail_name;
@@ -63,6 +84,7 @@ var map, infoWindow;
               var lengthMetersNbr = parseFloat(lengthMeters.distance);
               var lengthMiles = Math.round((lengthMetersNbr * 0.000621371) * 100) / 100
               // var lengthKilometers = Math.round((lengthMetersNbr * 0.001) * 100) / 100
+
               var point = new google.maps.LatLng(
                 parseFloat(trail.Tracks[0].Cords[0].lat),
                 parseFloat(trail.Tracks[0].Cords[0].lon));
@@ -71,6 +93,34 @@ var map, infoWindow;
                 position: point,
                 label: trailId
               });
+
+              // track.Images.forEach(function(images) {
+              //   var pointImage = new google.maps.LatLng(
+              //     parseFloat(images.lat),
+              //     parseFloat(images.lon));
+              //   var markerImage = new google.maps.Marker({
+              //     map: map,
+              //     position: pointImage,
+              //     icon: "../images/camera-icon.png",
+              //   });
+              // })
+              // var point = [
+              //   { 
+              //     position: new google.maps.LatLng(
+              //       parseFloat(trail.Tracks[0].Cords[0].lat),
+              //       parseFloat(trail.Tracks[0].Cords[0].lon)),
+              //     type: 'trail'
+
+              //   }
+              // ];
+
+              // var marker = new google.maps.Marker({
+              //     map: map,
+              //     position: point[i].point,
+              //     icon: icons[features[i].type].icon,
+              //     label: trailId
+              //   });
+              
 
               marker.addListener('click', function() {
                 infoWindow.setContent('<div class="trail-click" id="' + trailId + '">' + '<span class="bold-font">' + name + '</span>' + '<br>' + 
@@ -89,4 +139,17 @@ var map, infoWindow;
         event.preventDefault();
         var clickedId = $(this).attr("id");
         window.location.href = "/trail/" + clickedId;
+      })
+
+      $(document).on("click", ".image-click", function() {
+        event.preventDefault();
+        var imageClickedId = $(this).attr("id");
+        var imageClickedSrc = $(this).find('img').attr('src');
+        console.log("imageClickedId ", imageClickedId);
+        console.log("imageClickedSrc ", imageClickedSrc);
+
+        var modalImageSrc = '<img src="' + imageClickedSrc + '" alt="Trail Image" />';
+          $('.modal-body').append(modalImageSrc);
+
+        $('#imageModal').modal('show')
       })

@@ -58,7 +58,12 @@ var map, infoWindow;
 
               track.Images.forEach(function(images) {
                 var imageId = images.image_id.toString();
-                var smImage = "/assets/images/camera-icon-sm.png";
+                var smImage = "https://hikekc.s3.us-east-2.amazonaws.com/" + images.aws_image_key;
+
+                // $.get("/api/parkImages/" + idNbr, function(parkImages, err) {
+                //   console.log('Park ', parkImages);
+                //   console.log("err", err);
+                // })
 
                 var pointImage = new google.maps.LatLng(
                   parseFloat(images.lat),
@@ -148,7 +153,7 @@ var map, infoWindow;
         console.log("imageClickedId ", imageClickedId);
         console.log("imageClickedSrc ", imageClickedSrc);
 
-        var modalImageSrc = '<img src="' + imageClickedSrc + '" alt="Trail Image" />';
+        var modalImageSrc = '<img src="' + imageClickedSrc + '" id="rotate-test" class="modal-image" alt="Trail Image" />';
           $('.modal-body').append(modalImageSrc);
 
         $('#imageModal').modal('show')
