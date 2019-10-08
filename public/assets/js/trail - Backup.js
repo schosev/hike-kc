@@ -5,9 +5,6 @@ $( document ).ready(function() {
           var idNbr = parseInt(id);
           // console.log("url id ", id);
 
-  // var pointsArray = [['Distance', 'Elevation']];
-  var pointsArray = [];
-
   $.get("/api/trail/" + idNbr, function(dbTrail, err) {
     console.log('Trail.js ', dbTrail);
     console.log("err", err);
@@ -68,45 +65,6 @@ $( document ).ready(function() {
 
     var modalImageName = '<h5 class="modal-title" id="imageModalLabel">' + dbTrail.trail_name + '</h5>';
                 $('.modal-title-wrapper').append(modalImageName);
-
-    // dbTrail.Tracks[0].Cords.forEach(function(chartPoints) {
-    // // var cordArray = [];
-    //   pointsArray.push([chartPoints.distance, chartPoints.elev]);
-    // });
-
-    for (var i = 0; i < dbTrail.Tracks[0].Cords.length;) {
-      // pointsArray.push([parseFloat(dbTrail.Tracks[0].Cords[i].distance), parseFloat(dbTrail.Tracks[0].Cords[i].elev)]);
-      var distanceMiles = Math.round(parseFloat(dbTrail.Tracks[0].Cords[i].distance * 0.000621371) * 100) / 100;
-      var elevFeet = Math.round(parseFloat(dbTrail.Tracks[0].Cords[i].elev * 3.28084) * 100) / 100;
-      var toolTip = '<p class="chart-tooltip"> <b>' + distanceMiles + ' </b>miles' + '<br /><b>' + elevFeet + ' </b>feet' + '</p>';
-      // pointsArray.push([Math.round(parseFloat(dbTrail.Tracks[0].Cords[i].distance * 0.000621371) * 100) / 100, Math.round(parseFloat(dbTrail.Tracks[0].Cords[i].elev * 3.28084) * 100) / 100]);
-      pointsArray.push([distanceMiles, elevFeet, toolTip]);
-      i = i + 4;
-    };
-
-    console.log('pointsArray ', pointsArray);
-
-    google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
-
-      function drawChart() {          
-        var data = new google.visualization.DataTable();
-        data.addColumn('number', 'Distance');
-        data.addColumn('number', 'Elevation');
-        data.addColumn({'type': 'string', 'role': 'tooltip', 'p': {'html': true}});
-        data.addRows(pointsArray);
-
-        var options = {
-          hAxis: {title: 'Miles',  titleTextStyle: {color: '#333'}},
-          vAxis: {title: 'Feet',  titleTextStyle: {color: '#333'}},
-          tooltip: { isHtml: true }
-        };
-
-        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
-        console.log('data ', data);
-        chart.draw(data, options);
-      }
-    
   })
 
   $(document).on("click", ".park-name-header", function() {

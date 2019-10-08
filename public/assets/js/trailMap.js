@@ -57,7 +57,7 @@ var map, infoWindow;
 
               track.Images.forEach(function(images) {
                 var imageId = images.image_id.toString();
-                var smImage = "/assets/images/camera-icon-sm.png";
+                var smImage = "http://hikekc.s3.us-east-2.amazonaws.com/" + images.aws_image_key;
 
                 var pointImage = new google.maps.LatLng(
                   parseFloat(images.lat),
@@ -69,9 +69,29 @@ var map, infoWindow;
                 });
 
                 markerImage.addListener('click', function() {
-                  infoWindow.setContent('<div class="image-click" id="' + imageId + '">' + '<img src="' + smImage + '" class="info-window-image" alt="Trail Image" />' + 
-                  '</div>');
+                  // infoWindow.setContent('<div class="image-click" id="' + imageId + '">' + '<img src="' + smImage + '" class="info-window-image" alt="Trail Image" />' + 
+                  // '</div>');
+                  infoWindow.setContent('<div class="image-click" id="' + imageId + '">' + '</div>');
                   infoWindow.open(map, markerImage);
+
+                  window.loadImage(smImage, function (img) {
+                    console.log("loadImage");
+                    if (img.type === "error") {
+                        console.log("couldn't load image:", img);
+                    } else {
+                      // window.EXIF.getData(img, function () {
+                      EXIF.getData(img, function () {
+                          console.log("done!");
+                          var orientation = window.EXIF.getTag(this, "Orientation");
+                          var canvas = window.loadImage.scale(img, {orientation: orientation || 0, canvas: true});
+                          console.log("canvas ", canvas);
+                          console.log("orientation ", orientation);
+                          document.getElementById(imageId).appendChild(canvas);
+                          canvas.setAttribute("id", smImage);
+                          // infoWindow.open(map, markerImage);
+                      });
+                    }
+                  });
                 });
 
               })
@@ -112,12 +132,31 @@ var map, infoWindow;
       $(document).on("click", ".image-click", function() {
         event.preventDefault();
         var imageClickedId = $(this).attr("id");
-        var imageClickedSrc = $(this).find('img').attr('src');
+        var imageClickedSrc = $(this).find('canvas').attr('id');
         console.log("imageClickedId ", imageClickedId);
         console.log("imageClickedSrc ", imageClickedSrc);
 
         var modalImageSrc = '<img src="' + imageClickedSrc + '" alt="Trail Image" />';
-          $('.modal-body').append(modalImageSrc);
+        //   $('.modal-body').append(modalImageSrc);
 
-        $('#imageModal').modal('show')
+        // $('#imageModal').modal('show')
+
+        window.loadImage(imageClickedSrc, function (img) {
+          console.log("loadImage");
+            if (img.type === "error") {
+                console.log("couldn't load image:", img);
+            } else {
+                // window.EXIF.getData(img, function () {
+                EXIF.getData(img, function () {
+                    console.log("done!");
+                    var orientation = window.EXIF.getTag(this, "Orientation");
+                    var canvas = window.loadImage.scale(img, {orientation: orientation || 0, canvas: true});
+                    console.log("canvas ", canvas);
+                    console.log("orientation ", orientation);
+                    document.getElementById("container").appendChild(canvas);
+                    // or using jquery $("#container").append(canvas);
+                    $('#imageModal').modal('show')
+                });
+            }
+        });
       })
