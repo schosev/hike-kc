@@ -29,17 +29,23 @@ $( document ).ready(function() {
     var lengthMiles = Math.round((lengthMetersNbr * 0.000621371) * 100) / 100
     // var lengthKilometers = Math.round((lengthMetersNbr * 0.001) * 100) / 100
 
-    var trailType = "";
-    if (dbTrail.gravel) { trailType = 'Gravel'}
-    else if (dbTrail.paved) {trailType = "Paved"}
-    else if (dbTrail.single_track) {trailType = "Single Track"}
-    else if (dbTrail.mulch) {trailType = "Mulch"}
-    else {trailType = "Not Provided"};
+    var trailType = [];
+    if (dbTrail.gravel) { trailType.push('Gravel')};
+    if (dbTrail.paved) {trailType.push("Paved")};
+    if (dbTrail.single_track) {trailType.push("Single Track")};
+    if (dbTrail.mulch) {trailType.push("Mulch")};
+    if (dbTrail.sidewalk) {trailType.push("Sidewalk")};
+    if (dbTrail.dirt) {trailType.push("Dirt")};
+    if (dbTrail.grass) {trailType.push("Grass")};
+    if (!trailType) {trailType.push("Not Provided")};
 
     var trailAct = [];
     if (dbTrail.hiking) { trailAct.push("Hiking")};
     if (dbTrail.mtb) { trailAct.push("Mountain Biking")};
     if (dbTrail.walking) { trailAct.push("Walking")};
+    if (dbTrail.jogging) { trailAct.push("Jogging")};
+    if (dbTrail.trail_running) { trailAct.push("Trail Running")};
+    if (dbTrail.biking) { trailAct.push("Biking")};
     var trailActList = trailAct.toString();
 
     var trailDiff;
@@ -62,7 +68,7 @@ $( document ).ready(function() {
                   '<div>' + '<span class="bold-font">Length:</span> ' + lengthMiles + ' miles</div>' + 
                   '<div>' + '<span class="bold-font">Rating:</span> ' + dbTrail.trail_rating + '</div>' + 
                   '<div>' + '<span class="bold-font">Difficulty:</span> ' + trailDiffImg + ' ' + trailDiff + '</div>' + 
-                  '<div>' + '<span class="bold-font">Trail Type:</span> ' + trailType + '</div>' +
+                  '<div>' + '<span class="bold-font">Trail Type:</span> ' + trailType .join(", ") + '</div>' +
                   '<div>' + '<span class="bold-font">Activities:</span> ' + trailAct.join(", ") + '</div>';
     $('.single-trail-text').append(trailText);
 
@@ -82,6 +88,7 @@ $( document ).ready(function() {
       // pointsArray.push([Math.round(parseFloat(dbTrail.Tracks[0].Cords[i].distance * 0.000621371) * 100) / 100, Math.round(parseFloat(dbTrail.Tracks[0].Cords[i].elev * 3.28084) * 100) / 100]);
       pointsArray.push([distanceMiles, elevFeet, toolTip]);
       i = i + 4;
+      // i++;
     };
 
     console.log('pointsArray ', pointsArray);
@@ -97,9 +104,11 @@ $( document ).ready(function() {
         data.addRows(pointsArray);
 
         var options = {
+          // theme: "maximized",
           hAxis: {title: 'Miles',  titleTextStyle: {color: '#333'}},
           vAxis: {title: 'Feet',  titleTextStyle: {color: '#333'}},
-          tooltip: { isHtml: true }
+          tooltip: { isHtml: true },
+          legend: 'none'
         };
 
         var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));

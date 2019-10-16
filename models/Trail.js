@@ -8,11 +8,6 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       autoIncrement: true
     },
-    // park_id: {
-    //   type: DataTypes.INTEGER,
-    //   allowNull: false,
-    //   autoIncrement: false
-    // },
     trail_name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -25,42 +20,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.TEXT,
       allowNull: true,
     },
-    // trail_desc_long_2: {
-    //   type: DataTypes.TEXT,
-    //   allowNull: true,
-    // },
-    // trail_desc_long_3: {
-    //   type: DataTypes.TEXT,
-    //   allowNull: true,
-    // },
-    // trail_desc_long_4: {
-    //   type: DataTypes.TEXT,
-    //   allowNull: true,
-    // },
-    // trail_desc_long_5: {
-    //   type: DataTypes.TEXT,
-    //   allowNull: true,
-    // },
-    // trail_desc_long_6: {
-    //   type: DataTypes.TEXT,
-    //   allowNull: true,
-    // },
-    // trail_desc_long_7: {
-    //   type: DataTypes.TEXT,
-    //   allowNull: true,
-    // },
-    // trail_desc_long_8: {
-    //   type: DataTypes.TEXT,
-    //   allowNull: true,
-    // },
-    // trail_desc_long_9: {
-    //   type: DataTypes.TEXT,
-    //   allowNull: true,
-    // },
-    // trail_desc_long_10: {
-    //   type: DataTypes.TEXT,
-    //   allowNull: true,
-    // },
     trail_rating: {
       type: DataTypes.INTEGER(1),
       allowNull: false,
@@ -77,6 +36,30 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DECIMAL(10,2),
       allowNull: true,
     },
+    trail_color: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    connector_trail: {
+      type: DataTypes.BOOLEAN,
+      default: false,
+    },
+    loop_trail: {
+      type: DataTypes.BOOLEAN,
+      default: false,
+    },
+    one_way_trail: {
+      type: DataTypes.BOOLEAN,
+      default: false,
+    },
+    out_and_back: {
+      type: DataTypes.BOOLEAN,
+      default: false,
+    },
+    family: {
+      type: DataTypes.STRING,
+      default: false,
+    },
     hiking: {
       type: DataTypes.BOOLEAN,
       default: false,
@@ -86,6 +69,22 @@ module.exports = (sequelize, DataTypes) => {
       default: false,
     },
     walking: {
+      type: DataTypes.BOOLEAN,
+      default: false,
+    },
+    jogging: {
+      type: DataTypes.BOOLEAN,
+      default: false,
+    },
+    trail_running: {
+      type: DataTypes.BOOLEAN,
+      default: false,
+    },
+    biking: {
+      type: DataTypes.BOOLEAN,
+      default: false,
+    },
+    pets: {
       type: DataTypes.BOOLEAN,
       default: false,
     },
@@ -102,6 +101,18 @@ module.exports = (sequelize, DataTypes) => {
       default: false,
     },
     mulch: {
+      type: DataTypes.BOOLEAN,
+      default: false,
+    },
+    sidewalk: {
+      type: DataTypes.BOOLEAN,
+      default: false,
+    },
+    dirt: {
+      type: DataTypes.BOOLEAN,
+      default: false,
+    },
+    grass: {
       type: DataTypes.BOOLEAN,
       default: false,
     },

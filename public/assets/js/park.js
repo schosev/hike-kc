@@ -21,17 +21,24 @@ $( document ).ready(function() {
               var lengthMiles = Math.round((lengthMetersNbr * 0.000621371) * 100) / 100
               // var lengthKilometers = Math.round((lengthMetersNbr * 0.001) * 100) / 100
 
-              var trailType = "";
-              if (trailInfo.gravel) { trailType = 'Gravel'}
-              else if (trailInfo.paved) {trailType = "Paved"}
-              else if (trailInfo.single_track) {trailType = "Single Track"}
-              else if (trailInfo.mulch) {trailType = "Mulch"}
-              else {trailType = "Not Provided"};
+              var trailType = [];
+              if (trailInfo.gravel) { trailType.push('Gravel')};
+              if (trailInfo.paved) {trailType.push("Paved")};
+              if (trailInfo.single_track) {trailType.push("Single Track")};
+              if (trailInfo.mulch) {trailType.push("Mulch")};
+              if (trailInfo.sidewalk) {trailType.push("Sidewalk")};
+              if (trailInfo.dirt) {trailType.push("Dirt")};
+              if (trailInfo.grass) {trailType.push("Grass")};
+              if (!trailType) {trailType.push("Not Provided")};
 
+              // hiking, mtb, walking, jogging, trail_running, biking
               var trailAct = [];
               if (trailInfo.hiking) { trailAct.push("Hiking")};
               if (trailInfo.mtb) { trailAct.push("Mountain Biking")};
               if (trailInfo.walking) { trailAct.push("Walking")};
+              if (trailInfo.jogging) { trailAct.push("Jogging")};
+              if (trailInfo.trail_running) { trailAct.push("Trail Running")};
+              if (trailInfo.biking) { trailAct.push("Biking")};
 
               var trailText = '<div class="trail-aside-wrapper">' +
                             '<div class="trail-click" id="' + trailInfo.trail_id + '">' +
@@ -41,14 +48,14 @@ $( document ).ready(function() {
                             '<div>' +  '<span class="bold-font">Trail Description:</span> ' + trailInfo.trail_desc_short + '</div>' + 
                             '<div>' + '<span class="bold-font">Length:</span> ' + lengthMiles + ' miles</div>' + 
                             '<div>' + '<span class="bold-font">Rating:</span> ' + trailInfo.trail_rating + '</div>' + 
-                            '<div>' + '<span class="bold-font">Trail Type:</span> ' + trailType + '</div>' +
+                            '<div>' + '<span class="bold-font">Trail Type:</span> ' + trailType.join(", ") + '</div>' +
                             '<div>' + '<span class="bold-font">Activities:</span> ' + trailAct.join(", ") + '</div>' +
                             '</div>';
                             // '<hr class="hr-separator">';
               $('.trail-aside').append(trailText);
 
-              var modalImageName = '<h5 class="modal-title" id="imageModalLabel">' + trailInfo.trail_name + '</h5>';
-                $('.modal-title-wrapper').append(modalImageName);
+              // var modalImageName = '<h5 class="modal-title" id="imageModalLabel">' + trailInfo.trail_name + '</h5>';
+              //   $('.modal-title-wrapper').append(modalImageName);
             })
   })
 

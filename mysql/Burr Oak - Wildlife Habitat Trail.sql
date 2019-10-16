@@ -1,7 +1,51 @@
-INSERT INTO Trails (trail_name, trail_desc_short, trail_desc_long, trail_rating, trail_diff, trail_length_meters, trail_length_miles, hiking, mtb, walking, gravel, paved, single_track, mulch, createdAt, updatedAt, fk_park_id)
+INSERT INTO Trails (trail_name, trail_desc_short, trail_desc_long, trail_rating, trail_diff, trail_length_meters, trail_length_miles, trail_color, connector_trail, loop_trail, one_way_trail, out_and_back, family, hiking, mtb, walking, jogging, trail_running, biking, pets, gravel, paved, single_track, mulch, sidewalk, dirt, grass, createdAt, updatedAt, fk_park_id)
 VALUES("Wildlife Habitat Trail", "A gravel surface trail that shows how tree harvesting and thinning helps to improve forest health and wildlife habitat. Features along the trail include a hidden pond, restored woodlands, and glades. ", 
 "<p>A self-guided, educational, gravel surface trail that shows how tree harvesting and thinning helps to improve forest health and wildlife habitat. Features the trail include a hidden pond, restored woodlands, and glades. The educational trail is only on the shorter loop option.</p>",
-3, 1, 2443.68, 1.5, TRUE, FALSE, TRUE, TRUE, FALSE, TRUE, FALSE, NOW(), NOW(), 2);
+3, 1, 2443.68, 1.5, "", 
+-- FALSE, TRUE, FALSE, FALSE, TRUE, FALSE, FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, NOW(), NOW(), 1);
+
+-- TRAIL OPTIONS
+-- connector_trail, 
+FALSE,
+-- loop_trail, 
+TRUE,
+-- one_way_trail (can connect to other trail),  
+FALSE,
+-- out_and_back (no connection to other trail, only option is to come back same trail)
+FALSE,
+-- family, 
+FALSE,
+-- hiking, 
+TRUE,
+-- mtb, 
+FALSE,
+-- walking, 
+TRUE,
+-- jogging,
+FALSE, 
+-- trail_running, 
+FALSE,
+-- biking,
+FALSE, 
+-- pets, 
+FALSE,
+-- gravel, 
+TRUE,
+-- paved, 
+FALSE,
+-- single_track, 
+FALSE,
+-- mulch, 
+FALSE,
+-- sidewalk, 
+FALSE,
+-- dirt, 
+FALSE,
+-- grass, 
+FALSE,
+-- createdAt, updatedAt, fk_park_id
+NOW(), NOW(), 1);
+
 
 INSERT INTO Tracks (track_name, createdAt, updatedAt, fk_trail_id)
 VALUES("Wildlife Habitat Trail", NOW(), NOW(), 2);
@@ -1787,4 +1831,4 @@ Value(39.0453676583,-94.2841277987,0,289.67,0,0,NOW(),NOW(),2),
 (39.0453638987,-94.2841408650,2439.77,289.69,50.3,-50.28,NOW(),NOW(),2),
 (39.0453647450,-94.2841556755,2441.05,289.69,50.3,-50.28,NOW(),NOW(),2),
 (39.0453658875,-94.2841706982,2442.35,289.67,50.3,-50.28,NOW(),NOW(),2),
-(39.0453673509,-94.2841859485,2443.68,289.6,50.3,-50.3,NOW(),NOW(),2)
+(39.0453673509,-94.2841859485,2443.68,289.6,50.3,-50.3,NOW(),NOW(),2);

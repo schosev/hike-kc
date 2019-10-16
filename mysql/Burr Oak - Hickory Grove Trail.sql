@@ -1,7 +1,50 @@
-INSERT INTO Trails (trail_name, trail_desc_short, trail_desc_long, trail_rating, trail_diff, trail_length_meters, trail_length_miles, hiking, mtb, walking, gravel, paved, single_track, mulch, createdAt, updatedAt, fk_park_id)
+INSERT INTO Trails (trail_name, trail_desc_short, trail_desc_long, trail_rating, trail_diff, trail_length_meters, trail_length_miles, trail_color, connector_trail, loop_trail, one_way_trail, out_and_back, family, hiking, mtb, walking, jogging, trail_running, biking, pets, gravel, paved, single_track, mulch, sidewalk, dirt, grass, createdAt, updatedAt, fk_park_id)
 VALUES("Hickory Grove Trail", "A gravel surface, linear trail that travels through outlying areas of Burr Oak Woods.", 
 "<p>A gravel surface, linear trail that travels through outlying areas of Burr Oak Woods.</p>",
-3, 1, 1898.19, 1.2, TRUE, FALSE, TRUE, TRUE, FALSE, TRUE, FALSE, NOW(), NOW(), 2);
+3, 1, 1898.19, 1.2, "", 
+-- FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, NOW(), NOW(), 1);
+
+-- TRAIL OPTIONS
+-- connector_trail, 
+FALSE,
+-- loop_trail, 
+TRUE,
+-- one_way_trail (can connect to other trail), 
+FALSE,
+-- out_and_back (no connection to other trail, only option is to come back same trail)
+FALSE,
+-- family, 
+FALSE,
+-- hiking, 
+TRUE,
+-- mtb, 
+FALSE,
+-- walking, 
+TRUE,
+-- jogging,
+TRUE, 
+-- trail_running, 
+TRUE,
+-- biking,
+FALSE, 
+-- pets, 
+FALSE,
+-- gravel, 
+TRUE,
+-- paved, 
+FALSE,
+-- single_track, 
+FALSE,
+-- mulch, 
+FALSE,
+-- sidewalk, 
+FALSE,
+-- dirt, 
+FALSE,
+-- grass, 
+FALSE,
+-- createdAt, updatedAt, fk_park_id
+NOW(), NOW(), 1);
 
 INSERT INTO Tracks (track_name, createdAt, updatedAt, fk_trail_id)
 VALUES("Hickory Grove Trail", NOW(), NOW(), 3);
@@ -1373,4 +1416,4 @@ VALUES(39.0459709352,-94.2846724922,0,285.1,0,0,NOW(),NOW(),3),
 (39.0456904911,-94.2982323669,1893.67,257.17,23.88,-51.8,NOW(),NOW(),3),
 (39.0456994440,-94.2982175993,1895.29,257.16,23.88,-51.81,NOW(),NOW(),3),
 (39.0457077125,-94.2982037207,1896.8,257.15,23.88,-51.82,NOW(),NOW(),3),
-(39.0457158469,-94.2981915301,1898.19,257.14,23.88,-51.83,NOW(),NOW(),3)
+(39.0457158469,-94.2981915301,1898.19,257.14,23.88,-51.83,NOW(),NOW(),3);
