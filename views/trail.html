@@ -28,6 +28,16 @@
   </nav>
 
   <div class="container-fluid">
+
+    
+  <!-- gif test  -->
+  <div id="loading">
+    <div class="gif-wrapper">
+      <img src="/assets/images/spinner.gif" alt="Page Loading gif" />
+      <div class="loading-text">Loading...</div>
+    </div>
+  </div>
+
     <div class="row">
       <div class="col-md-1"></div>
       <div class="col-md-10 headers">
@@ -64,20 +74,26 @@
 <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <div class="modal-header">
+        <!-- <div class="modal-header">
           <div class="modal-title-wrapper">
             
           </div>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-        </div>
+        </div> -->
         <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button> -->
-        <div class="modal-body" id="container">
-          <!-- <img src="/assets/images/camera-icon-25.png" alt="Trail Image" /> -->
-          <!-- javascript insert image here -->
+        <div class="modal-body">
+            <div>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="canvasDiv" id="container">
+    
+              </div>
         </div>
         
       </div>
@@ -96,7 +112,7 @@
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCs36HDIO9xXLV8V3TgCnfVlUFg09DNXR8&callback=initTrailMap">
     </script>
     <script src="/assets/js/joe_exif.js"></script>
-    <script src="/assets/js/trail.js"></script>
+    <!-- <script src="/assets/js/trail.js"></script> -->
     <script src="/assets/js/common.js"></script>
 
 </html> 

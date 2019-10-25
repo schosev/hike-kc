@@ -128,7 +128,8 @@ $( document ).ready(function() {
   })
 
   $('#imageModal').on('hidden.bs.modal', function (e) {
-    $('.modal-body').text("");
+    // $('.modal-body').text("");
+    $('#container').text("");
   })
 
 });

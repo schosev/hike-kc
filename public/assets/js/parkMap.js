@@ -18,6 +18,57 @@ function initParkMap() {
       console.log('Park ', dbPark);
       console.log("err", err);
 
+      pageLoading();
+      // joe test - logic from parkCordArray.js start
+      var parkName = '<h1 class="park-name-header">' + dbPark.park_name + '</h1>';
+          $('.park-header').append(parkName);
+
+          var parkDetails = dbPark.park_desc_long;
+          $('.park-details').append(parkDetails);
+
+            dbPark.Trails.forEach(function(trailInfo) {
+              var lengthMeters = trailInfo.Tracks[0].Cords.slice(-1)[0];
+              var lengthMetersNbr = parseFloat(lengthMeters.distance);
+              var lengthMiles = Math.round((lengthMetersNbr * 0.000621371) * 100) / 100
+              // var lengthKilometers = Math.round((lengthMetersNbr * 0.001) * 100) / 100
+
+              var trailType = [];
+              if (trailInfo.gravel) { trailType.push('Gravel')};
+              if (trailInfo.paved) {trailType.push("Paved")};
+              if (trailInfo.single_track) {trailType.push("Single Track")};
+              if (trailInfo.mulch) {trailType.push("Mulch")};
+              if (trailInfo.sidewalk) {trailType.push("Sidewalk")};
+              if (trailInfo.dirt) {trailType.push("Dirt")};
+              if (trailInfo.grass) {trailType.push("Grass")};
+              if (!trailType) {trailType.push("Not Provided")};
+
+              // hiking, mtb, walking, jogging, trail_running, biking
+              var trailAct = [];
+              if (trailInfo.hiking) { trailAct.push("Hiking")};
+              if (trailInfo.mtb) { trailAct.push("Mountain Biking")};
+              if (trailInfo.walking) { trailAct.push("Walking")};
+              if (trailInfo.jogging) { trailAct.push("Jogging")};
+              if (trailInfo.trail_running) { trailAct.push("Trail Running")};
+              if (trailInfo.biking) { trailAct.push("Biking")};
+
+              var trailText = '<div class="trail-aside-wrapper">' +
+                            '<div class="trail-click" id="' + trailInfo.trail_id + '">' +
+                            '<div>' + '<span class="bold-font">Marker:</span> ' + trailInfo.trail_id + '</div>' +
+                            '<div class="bold-font">' + trailInfo.trail_name + '</div>' +
+                            '</div>' +
+                            '<div>' +  '<span class="bold-font">Trail Description:</span> ' + trailInfo.trail_desc_short + '</div>' + 
+                            '<div>' + '<span class="bold-font">Length:</span> ' + lengthMiles + ' miles</div>' + 
+                            '<div>' + '<span class="bold-font">Rating:</span> ' + trailInfo.trail_rating + '</div>' + 
+                            '<div>' + '<span class="bold-font">Trail Type:</span> ' + trailType.join(", ") + '</div>' +
+                            '<div>' + '<span class="bold-font">Activities:</span> ' + trailAct.join(", ") + '</div>' +
+                            '</div>';
+                            // '<hr class="hr-separator">';
+              $('.trail-aside').append(trailText);
+
+            })
+              // joe test - logic from parkCordArray.js end
+
+
       var pos = {
         lat: parseFloat(dbPark.park_lat),
         lng: parseFloat(dbPark.park_lon)
@@ -138,18 +189,28 @@ function initParkMap() {
                   EXIF.getData(img, function () {
                     console.log("done!");
                     var orientation = window.EXIF.getTag(this, "Orientation");
-                    var canvas = window.loadImage.scale(img, { orientation: orientation || 0, canvas: true });
+                    // var canvas = window.loadImage.scale(img, { orientation: orientation || 0, canvas: true });
+                    var canvas = window.loadImage.scale(img, { maxWidth: '100%', maxHeight: '100%', orientation: orientation || 0, canvas: true });
                     console.log("canvas ", canvas);
                     console.log("orientation ", orientation);
                     document.getElementById("container").appendChild(canvas);
                     // or using jquery $("#container").append(canvas);
+
+                    if (orientation === 1) {
+                      $(".modal").addClass("horizontal");
+                      $(".modal").removeClass("vertical");
+                    } else {
+                      $(".modal").addClass("vertical");
+                      $(".modal").removeClass("horizontal");
+                    }
+
                     $('#imageModal').modal('show')
                   });
                 }
               });
             })
           })
-        })
+        }) 
 
         var trailId = trail.trail_id.toString();
         var name = trail.trail_name;
@@ -215,11 +276,25 @@ function initParkMap() {
 
 }
 
+// joe testing logic from park.js start
+$( document ).ready(function() {
+  $('#imageModal').on('hidden.bs.modal', function (e) {
+    // $('.modal-body').text("");
+    $('#container').text("");
+  })
+});
+// joe testing logic from park.js end
+
 $(document).on("click", ".trail-click", function () {
   event.preventDefault();
   var clickedId = $(this).attr("id");
   window.location.href = "/trail/" + clickedId;
 })
+
+function pageLoading() {
+  document.getElementById('loading').style.visibility="hidden";
+  console.log('pageLoading');
+};
 
       // Joe Testing, uncomment below
       // $(document).on("click", ".image-click", function() {
