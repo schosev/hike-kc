@@ -22,7 +22,7 @@
   <nav class="navbar fixed-top">
     <a href="/" class="navbar-brand"><img src="/assets/images/hikeKC-logo.png" alt="HikeKC Logo" /></a>
     <form class="form-inline">
-      <input class="form-control mr-sm-2" type="search" id="search-value" placeholder="Search" aria-label="Search">
+      <input class="form-control mr-sm-2" type="search" id="search-value" placeholder="Enter Park or Trail Name" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0 search-btn" type="submit">Search</button>
     </form>
   </nav>
@@ -39,8 +39,9 @@
   </div>
 
     <div class="row">
-      <div class="col-md-1"></div>
-      <div class="col-md-10 headers">
+      <div class="col-md-2"></div>
+      <div class="col-md-8 headers">
+        <!-- <div class="col headers"> -->
         <div class="park-header">
           <!-- javascript insert park name here -->
         </div>
@@ -48,26 +49,49 @@
           <!-- javascript insert Trail name here -->
         </div>
       </div>
-      <div class="col-md-1"></div>
+      <div class="col-md-2"></div>
     </div>
-    <div class="row main-row">
-      <div class="col-md-1"></div>
-      <section class="col-md-10 main-section trail-main-section main-list-sect">
+    <!-- <div class="row main-row">
+      <div class="col-md-2"></div>
+      <section class="col-md-8 main-section trail-main-section main-list-sect">
         <div class="single-trail-text">
           
         </div>
         <div id="map"></div>
       </section>
-      <div class="col-md-1"></div>
-    </div>
+      <div class="col-md-2"></div>
+    </div> -->
+    <div class="row main-row">
+        <div class="col-md-2"></div>
+        <section class="col-md-8 main-section trail-main-section main-list-sect">
+          <div class="single-trail-text">
+            
+          </div>
+        </section>
+          <div class="col-md-2"></div>
+      </div>
+      <div class="row main-row">
+          <div class="col-md-2"> </div>
+          <div class="col-md-8 trail-main-section" id="map">
+
+          </div>
+        <div class="col-md-2"></div>
+      </div>
     <div class="row">
-      <div class="col-md-1"></div>
-      <div class="col-md-10 chart">
+      <div class="col-md-2"></div>
+      <div class="col-md-8 chart">
+      <!-- <div class="col chart"> -->
         <div id="chart_div">
           <!-- google chart goes here  -->
         </div>
       </div>
+      <div class="col-md-2"></div>
     </div>
+  </div>
+  <div class="footer">
+    <p class="copywright">
+      
+    </p>
   </div>
 
   <!-- Modal -->

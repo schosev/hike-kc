@@ -24,9 +24,15 @@
   padding-top: 0px;
 }
 
+.navbar-brand {
+  width: 60%;
+}
+
 .navbar-brand img {
   width: 15%;
   height: 15%;
+  max-height: 60px;
+  max-width: 60px;
 }
 
 /* a.navbar-brand:visited, a.navbar-brand:active {
@@ -45,6 +51,19 @@
   background-color: #225e2b;
 }
 
+#search-value {
+  /* font-size: 80%; */
+  width: 60%;
+}
+
+.search-btn {
+  width: 30%;
+}
+
+.form-inline {
+  width: 30%;
+}
+
 .container-fluid {
   height: 100%;
   background-image: url("./images/background.jpg");
@@ -53,28 +72,17 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  padding-top: 100px;
-  padding-bottom: 30px;
+  /* padding-top: 100px; */
+  padding-top: 70px;
+  /* padding-bottom: 30px; */
   /* color: #fff; */
 }
 
 .carousel {
-  /* height: auto; */
-  /* height: 75%; */
   width: 100%;
   overflow: hidden;
-  /* padding-top: 100px; */
   background-color: green;  /*just for testing*/
 }
-
-/* .carousel-item img {
-  display: block;
-  max-width: 800px;
-  max-height: 500px;
-  width: auto;
-  height: auto;
-  margin: auto;
-} */
 
 .carousel-item img {
   width: auto !important;
@@ -91,11 +99,14 @@
 
 .map-wrapper {
   height: 500px;
+  /* padding-top: 20px; */
 }
 
 .main-list-sect {
   /* color: #fff; */
-  border: 2px solid #000;
+  /* border: 2px solid #000; */
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
   background-color: #fff;
   /* max-height: 400px;
   overflow: auto; */
@@ -110,22 +121,32 @@
 }
 
 .park-list {
-  margin: 20px 0px;
+  /* margin: 20px 0px; */
+}
+
+div.park-list-text:nth-child(odd) {
+  background-color: #cccccc;
 }
 
 .park-list-text {
-  padding: 0px 0px 10px 15px;
+  /* padding: 0% 5% 10px 5%; */
+  padding: 10px 5%;
   border-bottom: solid 1px;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
 }
 
 .park-click:hover {
   cursor: pointer;
 }
 
+.park-map {
+  height: 500px;
+}
+
 .main-section {
   /* border: 2px solid #fff; */
   padding: 0px;
+  /* height: 500px; */
 }
 
 .bold-font {
@@ -139,14 +160,15 @@
 /* trails page styling */
 
 .park-main {
-  height: 500px;
+  /* height: 500px; */
 }
 
 .trail-aside {
   border: 2px solid #000;
   background-color: #fff;
   overflow: auto;
-  height: 100%;
+  /* height: 100%; */
+  height: 500px;
   padding: 0px;
 }
 
@@ -201,17 +223,18 @@
 }
 
 .single-trail-text {
-  float: left;
-  width: 70%;
+  /* float: left;
+  width: 70%; */
   background-color: #fff;
   /* border-bottom: solid #000 1px; */
   padding: 15px;
 }
 
-.trail-main-section #map {
-  float: right;
-  width: 30%;
+.trail-main-section#map {
+  /* float: right;
+  width: 30%; */
   height: 300px;
+  margin-top: 20px;
 }
 
 .diff-img {
@@ -303,11 +326,17 @@
 
 .chart {
   margin-top: 20px;
+  padding: 0px;
 }
 
 #chart_div {
   border: 2px solid #000;
+  width: 100%;
 }
+
+/* #chart_div div, #chart_div svg, #chart_div rect {
+  width: 100%;
+} */
 
 #curve_chart {
   width: 100%;
@@ -335,4 +364,15 @@
 .loading-text {
   color: #fff;
   font-weight: bold;
+}
+
+.footer {
+  background-color: #ac7339;
+  height: 30px;
+}
+
+.copywright {
+  text-align: center;
+  margin-bottom: 0px;
+  color: #fff;
 }

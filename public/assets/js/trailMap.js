@@ -131,6 +131,10 @@ var runFunction = false;
         console.log('data ', data);
         chart.draw(data, options);
       }
+
+      $(window).resize(function(){
+        drawChart();
+      });
       // Joe test adding trailId.js logic - start
 
 

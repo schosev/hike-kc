@@ -12,6 +12,11 @@ $( document ).ready(function() {
     interval: 3000
   })
 
+  var d = new Date();
+  var year = d.getFullYear();
+  var copyWright = '&copy; ' +  year + ' HikeKC.com' 
+  $('.copywright').append(copyWright);
+
 });
 
 // document.onreadystatechange = function () {

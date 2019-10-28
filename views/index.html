@@ -13,13 +13,14 @@
   <nav class="navbar fixed-top">
     <a href="" class="navbar-brand"><img src="/assets/images/hikeKC-logo.png" alt="HikeKC Logo" /></a>
     <form class="form-inline">
-      <input class="form-control mr-sm-2" type="search" id="search-value" placeholder="Search" aria-label="Search">
+      <input class="form-control mr-sm-2" type="search" id="search-value" placeholder="Enter Park or Trail Name" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0 search-btn" type="submit">Search</button>
     </form>
   </nav>
 
   <div class="container-fluid">
 <!-- carousel start -->
+<div class="row">
 <div id="parks-carousel" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#parks-carousel" data-slide-to="0" class="active"></li>
@@ -55,13 +56,15 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
+</div>
   <!-- carousel end -->
 
   <!-- <div class="container-fluid"> -->
     <div class="row main-row">
-      <div class="col-md-2"></div>
+      <!-- <div class="col-md-2"></div> -->
 
-      <section class="col-md-8 main-section">
+      <!-- <section class="col-md-8 main-section"> -->
+          <section class="col main-section">
         <div class="map-wrapper">
           <div id="map"></div>
         </div>
@@ -70,8 +73,13 @@
           <!-- <button class="btn test-btn" id="test-btn-id">FindAll</button> -->
         </div>
       </section>
-      <div class="col-md-2"></div>
+      <!-- <div class="col-md-2"></div> -->
     </div>
+  </div>
+  <div class="footer">
+    <p class="copywright">
+
+    </p>
   </div>
 
 </body>
