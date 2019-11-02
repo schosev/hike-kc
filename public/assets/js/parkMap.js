@@ -1,6 +1,7 @@
 
 var map, infoWindow;
 function initParkMap() {
+  console.log("iniTrailMap");
   map = new google.maps.Map(document.getElementById('map'), {
     // center: {lat: 39.0997, lng: -94.5786},
     // zoom: 10
@@ -295,6 +296,27 @@ function pageLoading() {
   document.getElementById('loading').style.visibility="hidden";
   console.log('pageLoading');
 };
+
+// $(window).resize(function(){
+//   screenSize();
+// });
+
+// function screenSize() {
+//   var screenWidth = screen.width
+
+//   if (screenWidth < 768) {
+//     $(".sm-screen").removeClass("hidden");
+//     $(".lg-screen").addClass("hidden");
+//     $(".mapDiv2").attr('id', 'map');
+//     initParkMap();
+//   } else {
+//     $(".lg-screen").removeClass("hidden");
+//     $(".sm-screen").addClass("hidden");
+//     $(".mapDiv1").attr('id', 'map');
+//     initParkMap();
+//   }
+// }
+// screenSize();
 
       // Joe Testing, uncomment below
       // $(document).on("click", ".image-click", function() {

@@ -14,8 +14,27 @@ $( document ).ready(function() {
 
   var d = new Date();
   var year = d.getFullYear();
-  var copyWright = '&copy; ' +  year + ' HikeKC.com' 
+  var copyWright = 'Copywright &copy; ' +  year + ' HikeKC.com' 
   $('.copywright').append(copyWright);
+
+  // $(window).resize(function(){
+  //   screenSize();
+  // });
+
+  // function screenSize() {
+  //   var screenWidth = screen.width
+
+  //   if (screenWidth < 768) {
+  //     $(".sm-screen").removeClass("hidden");
+  //     $(".lg-screen").addClass("hidden");
+  //     $(".mapDiv2").attr('id', 'map');
+  //   } else {
+  //     $(".lg-screen").removeClass("hidden");
+  //     $(".sm-screen").addClass("hidden");
+  //     $(".mapDiv1").attr('id', 'map');
+  //   }
+  // }
+  // screenSize();
 
 });
 
